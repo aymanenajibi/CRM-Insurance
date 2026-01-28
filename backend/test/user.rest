@@ -1,0 +1,36 @@
+### ===============================
+### REGISTER USER
+### ===============================
+POST http://127.0.0.1:8000/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "123456"
+}
+
+###
+
+### ===============================
+### LOGIN USER
+### ===============================
+POST http://127.0.0.1:8000/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "123456"
+}
+
+###
+
+### ===============================
+### LOGIN (WRONG PASSWORD)
+### ===============================
+POST http://127.0.0.1:8000/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "wrongpassword"
+}
