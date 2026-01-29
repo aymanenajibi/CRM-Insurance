@@ -1,36 +1,35 @@
 ### ===============================
-### REGISTER USER
+### 1️⃣ LOGIN ADMIN
 ### ===============================
+POST http://127.0.0.1:8000/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@mail.com",
+  "password": "123456"
+}
+### REGISTER
 POST http://127.0.0.1:8000/auth/register
 Content-Type: application/json
 
 {
-  "email": "test@example.com",
+  "username": "admin",
+  "email": "admin@mail.com",
   "password": "123456"
 }
 
-###
-
 ### ===============================
-### LOGIN USER
+### 2️⃣ CREATE USER (ADMIN ONLY)
 ### ===============================
-POST http://127.0.0.1:8000/auth/login
+POST http://127.0.0.1:8000/users/
+Authorization: Bearer {{admin_token}}
 Content-Type: application/json
 
 {
-  "email": "test@example.com",
-  "password": "123456"
+  "username": "user1",
+  "email": "user1@mail.com",
+  "password": "123456",
+  "role": "user"
 }
 
-###
 
-### ===============================
-### LOGIN (WRONG PASSWORD)
-### ===============================
-POST http://127.0.0.1:8000/auth/login
-Content-Type: application/json
-
-{
-  "email": "test@example.com",
-  "password": "wrongpassword"
-}
