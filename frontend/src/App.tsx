@@ -1,17 +1,37 @@
-function App() {
+import { BrowserRouter as Router, Routes, Route } from "react-router";
+import SignIn from "./pages/AuthPages/SignIn";
+import NotFound from "./pages/OtherPage/NotFound";
+import UserProfiles from "./pages/UserProfiles";
+import AppLayout from "./layout/AppLayout";
+import { ScrollToTop } from "./components/common/ScrollToTop";
+import Home from "./pages/Dashboard/Home";
+import ProtectedRoute from "./components/common/ProtectedRoute";
+import UsersPage from "./pages/Tables/UsersPage";
+
+export default function App() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
-      <h1 className="text-5xl font-extrabold text-white mb-4 shadow-lg p-4 rounded">
-        Hello Tailwind CSS!
-      </h1>
-      <p className="text-lg text-white mb-6">
-        Si tu vois ça, Tailwind fonctionne correctement ✅
-      </p>
-      <button className="bg-white text-pink-500 font-bold py-2 px-6 rounded-lg shadow-lg hover:bg-pink-500 hover:text-white transition duration-300">
-        Clique-moi
-      </button>
-    </div>
+    <>
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          {/* Dashboard Layout - Routes protégées */}
+          <Route element={
+            <ProtectedRoute>
+              <AppLayout />
+            </ProtectedRoute>
+          }>
+            <Route index path="/" element={<Home />} />
+            <Route path="/profile" element={<UserProfiles />} />
+            <Route path="/users" element={<UsersPage />} />
+          </Route>
+
+          {/* Auth Layout - Routes publiques */}
+          <Route path="/signin" element={<SignIn />} />
+
+          {/* Fallback Route */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
-
-export default App;

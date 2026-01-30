@@ -1,9 +1,10 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from pydantic import BaseModel
+from datetime import timedelta
 
 from app.database import get_db
 from app.models.user import User
+from app.schemas.user import LoginSchema, RegisterSchema, AuthResponse
 from app.utils.security import (
     verify_password,
     create_access_token,
@@ -12,36 +13,34 @@ from app.utils.security import (
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
 
-# ===================== SCHEMAS =====================
 
-class LoginSchema(BaseModel):
-    email: str
-    password: str
-
-class RegisterSchema(BaseModel):
-    username: str
-    email: str
-    password: str
-
-
-# ===================== LOGIN =====================
-
-@router.post("/login")
+@router.post("/login", response_model=AuthResponse)
 def login(data: LoginSchema, db: Session = Depends(get_db)):
+    """Connexion utilisateur"""
     user = db.query(User).filter(User.email == data.email).first()
 
     if not user or not verify_password(data.password, user.password):
-        raise HTTPException(status_code=401, detail="Invalid credentials")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Email ou mot de passe incorrect",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
 
     if not user.active:
-        raise HTTPException(status_code=403, detail="User inactive")
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Compte désactivé"
+        )
 
-    token = create_access_token(
-        {"sub": str(user.id), "role": user.role}
+    # Créer le token JWT
+    access_token_expires = timedelta(minutes=30)
+    access_token = create_access_token(
+        data={"sub": str(user.id), "role": user.role},
+        expires_delta=access_token_expires
     )
 
     return {
-        "access_token": token,
+        "access_token": access_token,
         "token_type": "bearer",
         "user": {
             "id": user.id,
@@ -54,17 +53,22 @@ def login(data: LoginSchema, db: Session = Depends(get_db)):
     }
 
 
-
-# ===================== REGISTER =====================
-
-@router.post("/register", status_code=201)
+@router.post("/register", status_code=status.HTTP_201_CREATED)
 def register(data: RegisterSchema, db: Session = Depends(get_db)):
-
+    """Inscription d'un nouvel utilisateur"""
+    # Vérifier si l'email existe déjà
     if db.query(User).filter(User.email == data.email).first():
-        raise HTTPException(status_code=400, detail="Email already registered")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Email déjà enregistré"
+        )
 
+    # Vérifier si le username existe déjà
     if db.query(User).filter(User.username == data.username).first():
-        raise HTTPException(status_code=400, detail="Username already taken")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Nom d'utilisateur déjà utilisé"
+        )
 
     user = User(
         username=data.username,
@@ -78,4 +82,4 @@ def register(data: RegisterSchema, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(user)
 
-    return {"message": "User created successfully", "id": user.id}
+    return {"message": "Utilisateur créé avec succès", "id": user.id}
