@@ -1,35 +1,119 @@
-### ===============================
-### 1️⃣ LOGIN ADMIN
-### ===============================
-POST http://127.0.0.1:8000/auth/login
+@baseUrl = http://127.0.0.1:8000
+@adminToken =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzY5Nzg5NDIyfQ.r4ElPo0Idsea3UMZ3vrYf0TCY189VRKC9e3mRShjdw0
+@userToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzY5Nzg5NDIyfQ.r4ElPo0Idsea3UMZ3vrYf0TCY189VRKC9e3mRShjdw0
+
+###################################################
+### GET ALL USERS (ADMIN ONLY)
+###################################################
+GET http://127.0.0.1:8000/users/1/me
+Authorization: Bearer {{adminToken}}
+
+###################################################
+### AUTH – LOGIN ADMIN
+###################################################
+POST {{baseUrl}}/auth/login
 Content-Type: application/json
 
 {
   "email": "admin@mail.com",
   "password": "123456"
 }
-### REGISTER
-POST http://127.0.0.1:8000/auth/register
+
+###################################################
+### AUTH – LOGIN USER
+###################################################
+POST {{baseUrl}}/auth/login
 Content-Type: application/json
 
 {
-  "username": "admin",
-  "email": "admin@mail.com",
-  "password": "123456"
+  "email": "user@mail.com",
+  "password": "user123"
 }
 
-### ===============================
-### 2️⃣ CREATE USER (ADMIN ONLY)
-### ===============================
-POST http://127.0.0.1:8000/users/
-Authorization: Bearer {{admin_token}}
+###################################################
+### CREATE USER (ADMIN ONLY)
+###################################################
+POST {{baseUrl}}/users
+Authorization: Bearer {{adminToken}}
 Content-Type: application/json
 
 {
-  "username": "user1",
-  "email": "user1@mail.com",
+  "username": "user2",
+  "email": "user2@mail.com",
   "password": "123456",
   "role": "user"
 }
 
+###################################################
+### ACTIVATE / DEACTIVATE USER (ADMIN)
+###################################################
+PUT {{baseUrl}}/users/2/activate?active=true
+Authorization: Bearer {{adminToken}}
 
+###################################################
+### USER UPDATE HIS OWN DATA
+###################################################
+PUT {{baseUrl}}/users/2
+Authorization: Bearer {{userToken}}
+Content-Type: application/json
+
+{
+  "username": "user_updated",
+  "email": "user_updated@mail.com"
+}
+
+###################################################
+### USER TRY UPDATE ANOTHER USER (FORBIDDEN ❌)
+###################################################
+PUT {{baseUrl}}/users/1
+Authorization: Bearer {{userToken}}
+Content-Type: application/json
+
+{
+  "username": "hacker"
+}
+
+###################################################
+### ADMIN UPDATE ANY USER (ROLE / ACTIVE)
+###################################################
+PUT {{baseUrl}}/users/2/admin
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "role": "admin",
+  "active": true
+}
+
+###################################################
+### USER RESET HIS PASSWORD
+###################################################
+PUT {{baseUrl}}/users/2/reset-password
+Authorization: Bearer {{userToken}}
+Content-Type: application/json
+
+{
+  "new_password": "newpassword123"
+}
+
+###################################################
+### ADMIN RESET PASSWORD OF ANY USER
+###################################################
+PUT {{baseUrl}}/users/2/reset-password
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+  "new_password": "adminreset123"
+}
+
+###################################################
+### LOGIN WITH NEW PASSWORD (CHECK)
+###################################################
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "user_updated@mail.com",
+  "password": "newpassword123"
+}
