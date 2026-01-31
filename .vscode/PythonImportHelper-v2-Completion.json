@@ -386,6 +386,14 @@
         "documentation": {}
     },
     {
+        "label": "get_db",
+        "importPath": "app.database",
+        "description": "app.database",
+        "isExtraImport": true,
+        "detail": "app.database",
+        "documentation": {}
+    },
+    {
         "label": "Base",
         "importPath": "app.database",
         "description": "app.database",
@@ -443,6 +451,22 @@
     },
     {
         "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
         "isExtraImport": true,
@@ -539,6 +563,38 @@
     },
     {
         "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -834,6 +890,14 @@
         "documentation": {}
     },
     {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Optional",
         "importPath": "typing",
         "description": "typing",
@@ -962,6 +1026,62 @@
         "documentation": {}
     },
     {
+        "label": "get_current_user",
+        "importPath": "app.dependencies",
+        "description": "app.dependencies",
+        "isExtraImport": true,
+        "detail": "app.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "admin_only",
+        "importPath": "app.dependencies",
+        "description": "app.dependencies",
+        "isExtraImport": true,
+        "detail": "app.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "Vehicule",
+        "importPath": "app.models.vehicule",
+        "description": "app.models.vehicule",
+        "isExtraImport": true,
+        "detail": "app.models.vehicule",
+        "documentation": {}
+    },
+    {
+        "label": "Vehicule",
+        "importPath": "app.models.vehicule",
+        "description": "app.models.vehicule",
+        "isExtraImport": true,
+        "detail": "app.models.vehicule",
+        "documentation": {}
+    },
+    {
+        "label": "VehiculeCreate",
+        "importPath": "app.schemas.vehicule",
+        "description": "app.schemas.vehicule",
+        "isExtraImport": true,
+        "detail": "app.schemas.vehicule",
+        "documentation": {}
+    },
+    {
+        "label": "VehiculeResponse",
+        "importPath": "app.schemas.vehicule",
+        "description": "app.schemas.vehicule",
+        "isExtraImport": true,
+        "detail": "app.schemas.vehicule",
+        "documentation": {}
+    },
+    {
+        "label": "VehiculeUpdate",
+        "importPath": "app.schemas.vehicule",
+        "description": "app.schemas.vehicule",
+        "isExtraImport": true,
+        "detail": "app.schemas.vehicule",
+        "documentation": {}
+    },
+    {
         "label": "BaseModel",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -1082,14 +1202,6 @@
         "documentation": {}
     },
     {
-        "label": "Vehicule",
-        "importPath": "app.models.vehicule",
-        "description": "app.models.vehicule",
-        "isExtraImport": true,
-        "detail": "app.models.vehicule",
-        "documentation": {}
-    },
-    {
         "label": "Police",
         "importPath": "app.models.police",
         "description": "app.models.police",
@@ -1139,6 +1251,14 @@
     },
     {
         "label": "users",
+        "importPath": "app.routes",
+        "description": "app.routes",
+        "isExtraImport": true,
+        "detail": "app.routes",
+        "documentation": {}
+    },
+    {
+        "label": "vehicules",
         "importPath": "app.routes",
         "description": "app.routes",
         "isExtraImport": true,
@@ -1382,7 +1502,7 @@
         "kind": 6,
         "importPath": "backend.app.models.client",
         "description": "backend.app.models.client",
-        "peekOfCode": "class Client(Base):\n    __tablename__ = \"clients\"\n    id = Column(Integer, primary_key=True, index=True)\n    nom_complet = Column(String(150), nullable=False)\n    cin = Column(String(20), unique=True, nullable=False)\n    date_naissance = Column(Date, nullable=False)\n    ville = Column(String(100), nullable=False)\n    type_permis = Column(String(50), nullable=False)\n    date_creation = Column(DateTime(timezone=True), server_default=func.now())",
+        "peekOfCode": "class Client(Base):\n    __tablename__ = \"clients\"\n    id = Column(Integer, primary_key=True, index=True)\n    nom_complet = Column(String(150), nullable=False)\n    cin = Column(String(20), unique=True, nullable=False)\n    date_naissance = Column(Date, nullable=False)\n    ville = Column(String(100), nullable=False)\n    type_permis = Column(String(50), nullable=False)\n    date_creation = Column(DateTime(timezone=True), server_default=func.now())\n    polices = relationship(\"Police\", back_populates=\"client\")",
         "detail": "backend.app.models.client",
         "documentation": {}
     },
@@ -1582,6 +1702,60 @@
         "description": "backend.app.routes.users",
         "peekOfCode": "router = APIRouter(prefix=\"/users\", tags=[\"Users\"])\n# ===================== GET ALL USERS (ADMIN) =====================\n@router.get(\"/\", response_model=List[UserResponse])\ndef get_all_users(db: Session = Depends(get_db), admin=Depends(admin_only)):\n    \"\"\"Récupérer tous les utilisateurs (admin seulement)\"\"\"\n    return db.query(User).all()\n# ===================== GET CURRENT USER =====================\n@router.get(\"/me\", response_model=UserResponse)\ndef get_current_user_info(current_user: User = Depends(get_current_user)):\n    \"\"\"Récupérer les informations de l'utilisateur connecté\"\"\"",
         "detail": "backend.app.routes.users",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_vehicules",
+        "kind": 2,
+        "importPath": "backend.app.routes.vehicules",
+        "description": "backend.app.routes.vehicules",
+        "peekOfCode": "def get_all_vehicules(\n    db: Session = Depends(get_db), \n    # current_user=Depends(get_current_user)\n):\n    \"\"\"Récupérer tous les véhicules\"\"\"\n    return db.query(Vehicule).all()\n# ===================== CREATE VEHICULE (ADMIN) =====================\n@router.post(\"/\", response_model=VehiculeResponse, status_code=status.HTTP_201_CREATED)\ndef create_vehicule(\n    data: VehiculeCreate,",
+        "detail": "backend.app.routes.vehicules",
+        "documentation": {}
+    },
+    {
+        "label": "create_vehicule",
+        "kind": 2,
+        "importPath": "backend.app.routes.vehicules",
+        "description": "backend.app.routes.vehicules",
+        "peekOfCode": "def create_vehicule(\n    data: VehiculeCreate,\n    db: Session = Depends(get_db),\n    # admin=Depends(admin_only)\n):\n    \"\"\"Créer un nouveau véhicule (admin seulement)\"\"\"\n    # Vérifier l'unicité du matricule\n    existing_matricule = db.query(Vehicule).filter(Vehicule.matricule == data.matricule).first()\n    if existing_matricule:\n        raise HTTPException(",
+        "detail": "backend.app.routes.vehicules",
+        "documentation": {}
+    },
+    {
+        "label": "get_vehicule_by_id",
+        "kind": 2,
+        "importPath": "backend.app.routes.vehicules",
+        "description": "backend.app.routes.vehicules",
+        "peekOfCode": "def get_vehicule_by_id(\n    vehicule_id: int,\n    db: Session = Depends(get_db),\n    current_user=Depends(get_current_user)\n):\n    \"\"\"Récupérer un véhicule par ID\"\"\"\n    vehicule = db.query(Vehicule).filter(Vehicule.id == vehicule_id).first()\n    if not vehicule:\n        raise HTTPException(\n            status_code=status.HTTP_404_NOT_FOUND,",
+        "detail": "backend.app.routes.vehicules",
+        "documentation": {}
+    },
+    {
+        "label": "update_vehicule",
+        "kind": 2,
+        "importPath": "backend.app.routes.vehicules",
+        "description": "backend.app.routes.vehicules",
+        "peekOfCode": "def update_vehicule(\n    vehicule_id: int,\n    data: VehiculeUpdate,\n    db: Session = Depends(get_db),\n    # admin=Depends(admin_only),\n):\n    \"\"\"Mettre à jour un véhicule (admin seulement)\"\"\"\n    vehicule = db.query(Vehicule).filter(Vehicule.id == vehicule_id).first()\n    if not vehicule:\n        raise HTTPException(",
+        "detail": "backend.app.routes.vehicules",
+        "documentation": {}
+    },
+    {
+        "label": "delete_vehicule",
+        "kind": 2,
+        "importPath": "backend.app.routes.vehicules",
+        "description": "backend.app.routes.vehicules",
+        "peekOfCode": "def delete_vehicule(\n    vehicule_id: int,\n    db: Session = Depends(get_db),\n    # admin=Depends(admin_only)\n):\n    \"\"\"Supprimer un véhicule (admin seulement)\"\"\"\n    vehicule = db.query(Vehicule).filter(Vehicule.id == vehicule_id).first()\n    if not vehicule:\n        raise HTTPException(\n            status_code=status.HTTP_404_NOT_FOUND,",
+        "detail": "backend.app.routes.vehicules",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.app.routes.vehicules",
+        "description": "backend.app.routes.vehicules",
+        "peekOfCode": "router = APIRouter(prefix=\"/vehicules\", tags=[\"Vehicules\"])\n# ===================== GET ALL VEHICULES =====================\n@router.get(\"/\", response_model=List[VehiculeResponse])\ndef get_all_vehicules(\n    db: Session = Depends(get_db), \n    # current_user=Depends(get_current_user)\n):\n    \"\"\"Récupérer tous les véhicules\"\"\"\n    return db.query(Vehicule).all()\n# ===================== CREATE VEHICULE (ADMIN) =====================",
+        "detail": "backend.app.routes.vehicules",
         "documentation": {}
     },
     {

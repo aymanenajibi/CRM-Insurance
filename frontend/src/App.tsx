@@ -7,6 +7,7 @@ import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import UsersPage from "./pages/Tables/UsersPage";
+import VehiculesPage from "./pages/Tables/VehiculesPage";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
             <Route index path="/" element={<Home />} />
             <Route path="/profile" element={<UserProfiles />} />
             <Route path="/users" element={<UsersPage />} />
+            <Route path="/vehicules" element={<VehiculesPage />} />
           </Route>
 
           {/* Auth Layout - Routes publiques */}

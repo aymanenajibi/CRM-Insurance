@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, DateTime
 from sqlalchemy.sql import func
+from sqlalchemy.orm import relationship
 from app.database import Base
 
 
@@ -13,3 +14,5 @@ class Client(Base):
     ville = Column(String(100), nullable=False)
     type_permis = Column(String(50), nullable=False)
     date_creation = Column(DateTime(timezone=True), server_default=func.now())
+
+    polices = relationship("Police", back_populates="client")

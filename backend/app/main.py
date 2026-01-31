@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import auth, users
+from app.routes import auth, users, vehicules
 
 app = FastAPI(
     title="FastAPI Auth System",
@@ -22,6 +22,7 @@ app.add_middleware(
 # Inclure les routeurs
 app.include_router(auth.router)
 app.include_router(users.router)
+app.include_router(vehicules.router)
 
 
 @app.get("/")
