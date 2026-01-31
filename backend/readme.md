@@ -10,3 +10,6 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ###
 CREATE DATABASE crm_db
+
+### pour cree les table
+python create_tables.py
