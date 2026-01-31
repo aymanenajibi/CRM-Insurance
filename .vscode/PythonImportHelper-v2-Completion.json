@@ -186,6 +186,14 @@
         "documentation": {}
     },
     {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "APIRouter",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -195,6 +203,22 @@
     },
     {
         "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -258,14 +282,6 @@
         "documentation": {}
     },
     {
-        "label": "declarative_base",
-        "importPath": "sqlalchemy.orm",
-        "description": "sqlalchemy.orm",
-        "isExtraImport": true,
-        "detail": "sqlalchemy.orm",
-        "documentation": {}
-    },
-    {
         "label": "Session",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
@@ -274,27 +290,51 @@
         "documentation": {}
     },
     {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
         "isExtraImport": true,
-        "detail": "pydantic",
+        "detail": "datetime",
         "documentation": {}
     },
     {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
         "isExtraImport": true,
-        "detail": "pydantic",
+        "detail": "datetime",
         "documentation": {}
     },
     {
-        "label": "EmailStr",
-        "importPath": "pydantic",
-        "description": "pydantic",
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
         "isExtraImport": true,
-        "detail": "pydantic",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
         "documentation": {}
     },
     {
@@ -314,19 +354,67 @@
         "documentation": {}
     },
     {
-        "label": "User",
-        "importPath": "app.models.user",
-        "description": "app.models.user",
+        "label": "LoginSchema",
+        "importPath": "app.schemas.user",
+        "description": "app.schemas.user",
         "isExtraImport": true,
-        "detail": "app.models.user",
+        "detail": "app.schemas.user",
         "documentation": {}
     },
     {
-        "label": "User",
-        "importPath": "app.models.user",
-        "description": "app.models.user",
+        "label": "RegisterSchema",
+        "importPath": "app.schemas.user",
+        "description": "app.schemas.user",
         "isExtraImport": true,
-        "detail": "app.models.user",
+        "detail": "app.schemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "AuthResponse",
+        "importPath": "app.schemas.user",
+        "description": "app.schemas.user",
+        "isExtraImport": true,
+        "detail": "app.schemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreate",
+        "importPath": "app.schemas.user",
+        "description": "app.schemas.user",
+        "isExtraImport": true,
+        "detail": "app.schemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "UserResponse",
+        "importPath": "app.schemas.user",
+        "description": "app.schemas.user",
+        "isExtraImport": true,
+        "detail": "app.schemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "UserUpdate",
+        "importPath": "app.schemas.user",
+        "description": "app.schemas.user",
+        "isExtraImport": true,
+        "detail": "app.schemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "AdminUserUpdate",
+        "importPath": "app.schemas.user",
+        "description": "app.schemas.user",
+        "isExtraImport": true,
+        "detail": "app.schemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordReset",
+        "importPath": "app.schemas.user",
+        "description": "app.schemas.user",
+        "isExtraImport": true,
+        "detail": "app.schemas.user",
         "documentation": {}
     },
     {
@@ -362,19 +450,35 @@
         "documentation": {}
     },
     {
-        "label": "UserCreate",
-        "importPath": "app.schemas.user",
-        "description": "app.schemas.user",
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "app.schemas.user",
+        "detail": "typing",
         "documentation": {}
     },
     {
-        "label": "UserResponse",
-        "importPath": "app.schemas.user",
-        "description": "app.schemas.user",
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "app.schemas.user",
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "app.dependencies",
+        "description": "app.dependencies",
+        "isExtraImport": true,
+        "detail": "app.dependencies",
         "documentation": {}
     },
     {
@@ -386,43 +490,27 @@
         "documentation": {}
     },
     {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
         "isExtraImport": true,
-        "detail": "datetime",
+        "detail": "pydantic",
         "documentation": {}
     },
     {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
+        "label": "EmailStr",
+        "importPath": "pydantic",
+        "description": "pydantic",
         "isExtraImport": true,
-        "detail": "datetime",
+        "detail": "pydantic",
         "documentation": {}
     },
     {
-        "label": "timedelta",
-        "importPath": "datetime",
-        "description": "datetime",
+        "label": "field_validator",
+        "importPath": "pydantic",
+        "description": "pydantic",
         "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
+        "detail": "pydantic",
         "documentation": {}
     },
     {
@@ -458,11 +546,43 @@
         "documentation": {}
     },
     {
+        "label": "ExpiredSignatureError",
+        "importPath": "jose",
+        "description": "jose",
+        "isExtraImport": true,
+        "detail": "jose",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "OAuth2PasswordBearer",
         "importPath": "fastapi.security",
         "description": "fastapi.security",
         "isExtraImport": true,
         "detail": "fastapi.security",
+        "documentation": {}
+    },
+    {
+        "label": "CORSMiddleware",
+        "importPath": "fastapi.middleware.cors",
+        "description": "fastapi.middleware.cors",
+        "isExtraImport": true,
+        "detail": "fastapi.middleware.cors",
         "documentation": {}
     },
     {
@@ -479,6 +599,202 @@
         "description": "app.routes",
         "isExtraImport": true,
         "detail": "app.routes",
+        "documentation": {}
+    },
+    {
+        "label": "shapely.geometry",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shapely.geometry",
+        "description": "shapely.geometry",
+        "detail": "shapely.geometry",
+        "documentation": {}
+    },
+    {
+        "label": "shapely.wkb",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shapely.wkb",
+        "description": "shapely.wkb",
+        "detail": "shapely.wkb",
+        "documentation": {}
+    },
+    {
+        "label": "shapely.affinity",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shapely.affinity",
+        "description": "shapely.affinity",
+        "detail": "shapely.affinity",
+        "documentation": {}
+    },
+    {
+        "label": "ogr",
+        "importPath": "osgeo",
+        "description": "osgeo",
+        "isExtraImport": true,
+        "detail": "osgeo",
+        "documentation": {}
+    },
+    {
+        "label": "osr",
+        "importPath": "osgeo",
+        "description": "osgeo",
+        "isExtraImport": true,
+        "detail": "osgeo",
+        "documentation": {}
+    },
+    {
+        "label": "ogr",
+        "importPath": "osgeo",
+        "description": "osgeo",
+        "isExtraImport": true,
+        "detail": "osgeo",
+        "documentation": {}
+    },
+    {
+        "label": "osr",
+        "importPath": "osgeo",
+        "description": "osgeo",
+        "isExtraImport": true,
+        "detail": "osgeo",
+        "documentation": {}
+    },
+    {
+        "label": "ogr",
+        "importPath": "osgeo",
+        "description": "osgeo",
+        "isExtraImport": true,
+        "detail": "osgeo",
+        "documentation": {}
+    },
+    {
+        "label": "osr",
+        "importPath": "osgeo",
+        "description": "osgeo",
+        "isExtraImport": true,
+        "detail": "osgeo",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "codecs",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "codecs",
+        "description": "codecs",
+        "detail": "codecs",
+        "documentation": {}
+    },
+    {
+        "label": "copy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "copy",
+        "description": "copy",
+        "detail": "copy",
+        "documentation": {}
+    },
+    {
+        "label": "csv",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "csv",
+        "description": "csv",
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "shapely.ops",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shapely.ops",
+        "description": "shapely.ops",
+        "detail": "shapely.ops",
+        "documentation": {}
+    },
+    {
+        "label": "inspect",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "inspect",
+        "description": "inspect",
+        "detail": "inspect",
+        "documentation": {}
+    },
+    {
+        "label": "Grammar",
+        "importPath": "booleano.parser",
+        "description": "booleano.parser",
+        "isExtraImport": true,
+        "detail": "booleano.parser",
+        "documentation": {}
+    },
+    {
+        "label": "EvaluableParseManager",
+        "importPath": "booleano.parser",
+        "description": "booleano.parser",
+        "isExtraImport": true,
+        "detail": "booleano.parser",
+        "documentation": {}
+    },
+    {
+        "label": "SymbolTable",
+        "importPath": "booleano.parser",
+        "description": "booleano.parser",
+        "isExtraImport": true,
+        "detail": "booleano.parser",
+        "documentation": {}
+    },
+    {
+        "label": "Bind",
+        "importPath": "booleano.parser",
+        "description": "booleano.parser",
+        "isExtraImport": true,
+        "detail": "booleano.parser",
+        "documentation": {}
+    },
+    {
+        "label": "Variable",
+        "importPath": "booleano.operations",
+        "description": "booleano.operations",
+        "isExtraImport": true,
+        "detail": "booleano.operations",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "anyjson",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "anyjson",
+        "description": "anyjson",
+        "detail": "anyjson",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
         "documentation": {}
     },
     {
@@ -522,26 +838,8 @@
         "kind": 6,
         "importPath": "backend.app.models.user",
         "description": "backend.app.models.user",
-        "peekOfCode": "class User(Base):\n    __tablename__ = \"users\"\n    id = Column(Integer, primary_key=True, index=True)\n    username = Column(String, unique=True, nullable=False)\n    email = Column(String, unique=True, index=True, nullable=False)\n    password = Column(String, nullable=False)\n    role = Column(String, default=\"user\")  # admin | user\n    active = Column(Boolean, default=False)\n    created_at = Column(DateTime(timezone=True), server_default=func.now())",
+        "peekOfCode": "class User(Base):\n    __tablename__ = \"users\"\n    id = Column(Integer, primary_key=True, index=True)\n    username = Column(String(50), unique=True, index=True, nullable=False)\n    email = Column(String(100), unique=True, index=True, nullable=False)\n    password = Column(String(255), nullable=False)\n    role = Column(String(20), default=\"user\")  # \"user\" ou \"admin\"\n    active = Column(Boolean, default=True)\n    created_at = Column(DateTime(timezone=True), server_default=func.now())\n    def __repr__(self):",
         "detail": "backend.app.models.user",
-        "documentation": {}
-    },
-    {
-        "label": "LoginSchema",
-        "kind": 6,
-        "importPath": "backend.app.routes.auth",
-        "description": "backend.app.routes.auth",
-        "peekOfCode": "class LoginSchema(BaseModel):\n    email: str\n    password: str\nclass RegisterSchema(BaseModel):\n    username: str\n    email: str\n    password: str\n# ===================== LOGIN =====================\n@router.post(\"/login\")\ndef login(data: LoginSchema, db: Session = Depends(get_db)):",
-        "detail": "backend.app.routes.auth",
-        "documentation": {}
-    },
-    {
-        "label": "RegisterSchema",
-        "kind": 6,
-        "importPath": "backend.app.routes.auth",
-        "description": "backend.app.routes.auth",
-        "peekOfCode": "class RegisterSchema(BaseModel):\n    username: str\n    email: str\n    password: str\n# ===================== LOGIN =====================\n@router.post(\"/login\")\ndef login(data: LoginSchema, db: Session = Depends(get_db)):\n    user = db.query(User).filter(User.email == data.email).first()\n    if not user or not verify_password(data.password, user.password):\n        raise HTTPException(status_code=401, detail=\"Invalid credentials\")",
-        "detail": "backend.app.routes.auth",
         "documentation": {}
     },
     {
@@ -549,7 +847,7 @@
         "kind": 2,
         "importPath": "backend.app.routes.auth",
         "description": "backend.app.routes.auth",
-        "peekOfCode": "def login(data: LoginSchema, db: Session = Depends(get_db)):\n    user = db.query(User).filter(User.email == data.email).first()\n    if not user or not verify_password(data.password, user.password):\n        raise HTTPException(status_code=401, detail=\"Invalid credentials\")\n    if not user.active:\n        raise HTTPException(status_code=403, detail=\"User inactive\")\n    token = create_access_token(\n        {\"sub\": str(user.id), \"role\": user.role}\n    )\n    return {",
+        "peekOfCode": "def login(data: LoginSchema, db: Session = Depends(get_db)):\n    \"\"\"Connexion utilisateur\"\"\"\n    user = db.query(User).filter(User.email == data.email).first()\n    if not user or not verify_password(data.password, user.password):\n        raise HTTPException(\n            status_code=status.HTTP_401_UNAUTHORIZED,\n            detail=\"Email ou mot de passe incorrect\",\n            headers={\"WWW-Authenticate\": \"Bearer\"},\n        )\n    if not user.active:",
         "detail": "backend.app.routes.auth",
         "documentation": {}
     },
@@ -558,7 +856,7 @@
         "kind": 2,
         "importPath": "backend.app.routes.auth",
         "description": "backend.app.routes.auth",
-        "peekOfCode": "def register(data: RegisterSchema, db: Session = Depends(get_db)):\n    if db.query(User).filter(User.email == data.email).first():\n        raise HTTPException(status_code=400, detail=\"Email already registered\")\n    if db.query(User).filter(User.username == data.username).first():\n        raise HTTPException(status_code=400, detail=\"Username already taken\")\n    user = User(\n        username=data.username,\n        email=data.email,\n        password=hash_password(data.password),\n        role=\"user\",",
+        "peekOfCode": "def register(data: RegisterSchema, db: Session = Depends(get_db)):\n    \"\"\"Inscription d'un nouvel utilisateur\"\"\"\n    # Vérifier si l'email existe déjà\n    if db.query(User).filter(User.email == data.email).first():\n        raise HTTPException(\n            status_code=status.HTTP_400_BAD_REQUEST,\n            detail=\"Email déjà enregistré\"\n        )\n    # Vérifier si le username existe déjà\n    if db.query(User).filter(User.username == data.username).first():",
         "detail": "backend.app.routes.auth",
         "documentation": {}
     },
@@ -567,8 +865,44 @@
         "kind": 5,
         "importPath": "backend.app.routes.auth",
         "description": "backend.app.routes.auth",
-        "peekOfCode": "router = APIRouter(prefix=\"/auth\", tags=[\"Auth\"])\n# ===================== SCHEMAS =====================\nclass LoginSchema(BaseModel):\n    email: str\n    password: str\nclass RegisterSchema(BaseModel):\n    username: str\n    email: str\n    password: str\n# ===================== LOGIN =====================",
+        "peekOfCode": "router = APIRouter(prefix=\"/auth\", tags=[\"Auth\"])\n@router.post(\"/login\", response_model=AuthResponse)\ndef login(data: LoginSchema, db: Session = Depends(get_db)):\n    \"\"\"Connexion utilisateur\"\"\"\n    user = db.query(User).filter(User.email == data.email).first()\n    if not user or not verify_password(data.password, user.password):\n        raise HTTPException(\n            status_code=status.HTTP_401_UNAUTHORIZED,\n            detail=\"Email ou mot de passe incorrect\",\n            headers={\"WWW-Authenticate\": \"Bearer\"},",
         "detail": "backend.app.routes.auth",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_users",
+        "kind": 2,
+        "importPath": "backend.app.routes.users",
+        "description": "backend.app.routes.users",
+        "peekOfCode": "def get_all_users(db: Session = Depends(get_db), admin=Depends(admin_only)):\n    \"\"\"Récupérer tous les utilisateurs (admin seulement)\"\"\"\n    return db.query(User).all()\n# ===================== GET CURRENT USER =====================\n@router.get(\"/me\", response_model=UserResponse)\ndef get_current_user_info(current_user: User = Depends(get_current_user)):\n    \"\"\"Récupérer les informations de l'utilisateur connecté\"\"\"\n    return current_user\n# ===================== UPDATE USER =====================\n@router.put(\"/me\", response_model=UserResponse)",
+        "detail": "backend.app.routes.users",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user_info",
+        "kind": 2,
+        "importPath": "backend.app.routes.users",
+        "description": "backend.app.routes.users",
+        "peekOfCode": "def get_current_user_info(current_user: User = Depends(get_current_user)):\n    \"\"\"Récupérer les informations de l'utilisateur connecté\"\"\"\n    return current_user\n# ===================== UPDATE USER =====================\n@router.put(\"/me\", response_model=UserResponse)\ndef update_current_user(\n    data: UserUpdate,\n    db: Session = Depends(get_db),\n    current_user: User = Depends(get_current_user),\n):",
+        "detail": "backend.app.routes.users",
+        "documentation": {}
+    },
+    {
+        "label": "update_current_user",
+        "kind": 2,
+        "importPath": "backend.app.routes.users",
+        "description": "backend.app.routes.users",
+        "peekOfCode": "def update_current_user(\n    data: UserUpdate,\n    db: Session = Depends(get_db),\n    current_user: User = Depends(get_current_user),\n):\n    \"\"\"Mettre à jour l'utilisateur connecté\"\"\"\n    # Vérifier l'unicité de l'email si changé\n    if data.email is not None and data.email != current_user.email:\n        existing_email = db.query(User).filter(User.email == data.email).first()\n        if existing_email:",
+        "detail": "backend.app.routes.users",
+        "documentation": {}
+    },
+    {
+        "label": "change_password",
+        "kind": 2,
+        "importPath": "backend.app.routes.users",
+        "description": "backend.app.routes.users",
+        "peekOfCode": "def change_password(\n    data: PasswordReset,\n    db: Session = Depends(get_db),\n    current_user: User = Depends(get_current_user),\n):\n    \"\"\"Changer le mot de passe de l'utilisateur connecté\"\"\"\n    current_user.password = hash_password(data.new_password)\n    db.commit()\n    return {\"message\": \"Mot de passe mis à jour avec succès\"}\n# ===================== ADMIN: CREATE USER =====================",
+        "detail": "backend.app.routes.users",
         "documentation": {}
     },
     {
@@ -576,16 +910,34 @@
         "kind": 2,
         "importPath": "backend.app.routes.users",
         "description": "backend.app.routes.users",
-        "peekOfCode": "def create_user(\n    user: UserCreate,\n    db: Session = Depends(get_db),\n    admin = Depends(admin_only)\n):\n    new_user = User(\n        username=user.username,\n        email=user.email,\n        password=hash_password(user.password),\n        role=user.role,",
+        "peekOfCode": "def create_user(\n    user: UserCreate,\n    db: Session = Depends(get_db),\n    admin=Depends(admin_only)\n):\n    \"\"\"Créer un nouvel utilisateur (admin seulement)\"\"\"\n    # Vérifier si l'email existe déjà\n    existing_email = db.query(User).filter(User.email == user.email).first()\n    if existing_email:\n        raise HTTPException(",
         "detail": "backend.app.routes.users",
         "documentation": {}
     },
     {
-        "label": "activate_user",
+        "label": "get_user_by_id",
         "kind": 2,
         "importPath": "backend.app.routes.users",
         "description": "backend.app.routes.users",
-        "peekOfCode": "def activate_user(\n    user_id: int,\n    active: bool,\n    db: Session = Depends(get_db),\n    admin = Depends(admin_only)\n):\n    user = db.query(User).filter(User.id == user_id).first()\n    user.active = active\n    db.commit()\n    return {\"message\": \"User status updated\"}",
+        "peekOfCode": "def get_user_by_id(\n    user_id: int,\n    db: Session = Depends(get_db),\n    admin=Depends(admin_only)\n):\n    \"\"\"Récupérer un utilisateur par ID (admin seulement)\"\"\"\n    user = db.query(User).filter(User.id == user_id).first()\n    if not user:\n        raise HTTPException(\n            status_code=status.HTTP_404_NOT_FOUND,",
+        "detail": "backend.app.routes.users",
+        "documentation": {}
+    },
+    {
+        "label": "admin_update_user",
+        "kind": 2,
+        "importPath": "backend.app.routes.users",
+        "description": "backend.app.routes.users",
+        "peekOfCode": "def admin_update_user(\n    user_id: int,\n    data: AdminUserUpdate,\n    db: Session = Depends(get_db),\n    admin=Depends(admin_only),\n):\n    \"\"\"Mettre à jour un utilisateur (admin seulement)\"\"\"\n    user = db.query(User).filter(User.id == user_id).first()\n    if not user:\n        raise HTTPException(",
+        "detail": "backend.app.routes.users",
+        "documentation": {}
+    },
+    {
+        "label": "delete_user",
+        "kind": 2,
+        "importPath": "backend.app.routes.users",
+        "description": "backend.app.routes.users",
+        "peekOfCode": "def delete_user(\n    user_id: int,\n    db: Session = Depends(get_db),\n    admin=Depends(admin_only)\n):\n    \"\"\"Supprimer un utilisateur (admin seulement)\"\"\"\n    user = db.query(User).filter(User.id == user_id).first()\n    if not user:\n        raise HTTPException(\n            status_code=status.HTTP_404_NOT_FOUND,",
         "detail": "backend.app.routes.users",
         "documentation": {}
     },
@@ -594,8 +946,26 @@
         "kind": 5,
         "importPath": "backend.app.routes.users",
         "description": "backend.app.routes.users",
-        "peekOfCode": "router = APIRouter(prefix=\"/users\", tags=[\"Users\"])\n@router.post(\"/\", response_model=UserResponse)\ndef create_user(\n    user: UserCreate,\n    db: Session = Depends(get_db),\n    admin = Depends(admin_only)\n):\n    new_user = User(\n        username=user.username,\n        email=user.email,",
+        "peekOfCode": "router = APIRouter(prefix=\"/users\", tags=[\"Users\"])\n# ===================== GET ALL USERS (ADMIN) =====================\n@router.get(\"/\", response_model=List[UserResponse])\ndef get_all_users(db: Session = Depends(get_db), admin=Depends(admin_only)):\n    \"\"\"Récupérer tous les utilisateurs (admin seulement)\"\"\"\n    return db.query(User).all()\n# ===================== GET CURRENT USER =====================\n@router.get(\"/me\", response_model=UserResponse)\ndef get_current_user_info(current_user: User = Depends(get_current_user)):\n    \"\"\"Récupérer les informations de l'utilisateur connecté\"\"\"",
         "detail": "backend.app.routes.users",
+        "documentation": {}
+    },
+    {
+        "label": "LoginSchema",
+        "kind": 6,
+        "importPath": "backend.app.schemas.user",
+        "description": "backend.app.schemas.user",
+        "peekOfCode": "class LoginSchema(BaseModel):\n    email: EmailStr\n    password: str\n    @field_validator('password')\n    @classmethod\n    def validate_password(cls, v):\n        if len(v) < 6:\n            raise ValueError('Le mot de passe doit contenir au moins 6 caractères')\n        return v\n# ===== REGISTER =====",
+        "detail": "backend.app.schemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterSchema",
+        "kind": 6,
+        "importPath": "backend.app.schemas.user",
+        "description": "backend.app.schemas.user",
+        "peekOfCode": "class RegisterSchema(BaseModel):\n    username: str\n    email: EmailStr\n    password: str\n    @field_validator('username')\n    @classmethod\n    def validate_username(cls, v):\n        if len(v) < 3:\n            raise ValueError('Le nom d\\'utilisateur doit contenir au moins 3 caractères')\n        return v",
+        "detail": "backend.app.schemas.user",
         "documentation": {}
     },
     {
@@ -603,7 +973,34 @@
         "kind": 6,
         "importPath": "backend.app.schemas.user",
         "description": "backend.app.schemas.user",
-        "peekOfCode": "class UserCreate(BaseModel):\n    username: str\n    email: EmailStr\n    password: str\n    role: str = \"user\"\nclass UserResponse(BaseModel):\n    id: int\n    username: str\n    email: EmailStr\n    role: str",
+        "peekOfCode": "class UserCreate(BaseModel):\n    username: str\n    email: EmailStr\n    password: str\n    role: str = \"user\"\n    @field_validator('password')\n    @classmethod\n    def validate_password(cls, v):\n        if len(v) < 6:\n            raise ValueError('Le mot de passe doit contenir au moins 6 caractères')",
+        "detail": "backend.app.schemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "UserUpdate",
+        "kind": 6,
+        "importPath": "backend.app.schemas.user",
+        "description": "backend.app.schemas.user",
+        "peekOfCode": "class UserUpdate(BaseModel):\n    username: Optional[str] = None\n    email: Optional[EmailStr] = None\nclass AdminUserUpdate(UserUpdate):\n    role: Optional[str] = None\n    active: Optional[bool] = None\n# ===== PASSWORD =====\nclass PasswordReset(BaseModel):\n    new_password: str\n    @field_validator('new_password')",
+        "detail": "backend.app.schemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "AdminUserUpdate",
+        "kind": 6,
+        "importPath": "backend.app.schemas.user",
+        "description": "backend.app.schemas.user",
+        "peekOfCode": "class AdminUserUpdate(UserUpdate):\n    role: Optional[str] = None\n    active: Optional[bool] = None\n# ===== PASSWORD =====\nclass PasswordReset(BaseModel):\n    new_password: str\n    @field_validator('new_password')\n    @classmethod\n    def validate_password(cls, v):\n        if len(v) < 6:",
+        "detail": "backend.app.schemas.user",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordReset",
+        "kind": 6,
+        "importPath": "backend.app.schemas.user",
+        "description": "backend.app.schemas.user",
+        "peekOfCode": "class PasswordReset(BaseModel):\n    new_password: str\n    @field_validator('new_password')\n    @classmethod\n    def validate_password(cls, v):\n        if len(v) < 6:\n            raise ValueError('Le mot de passe doit contenir au moins 6 caractères')\n        return v\n# ===== RESPONSE =====\nclass UserResponse(BaseModel):",
         "detail": "backend.app.schemas.user",
         "documentation": {}
     },
@@ -612,17 +1009,17 @@
         "kind": 6,
         "importPath": "backend.app.schemas.user",
         "description": "backend.app.schemas.user",
-        "peekOfCode": "class UserResponse(BaseModel):\n    id: int\n    username: str\n    email: EmailStr\n    role: str\n    active: bool\n    created_at: datetime\n    class Config:\n        from_attributes = True",
+        "peekOfCode": "class UserResponse(BaseModel):\n    id: int\n    username: str\n    email: str\n    role: str\n    active: bool\n    created_at: datetime\n    class Config:\n        from_attributes = True\n# ===== AUTH RESPONSE =====",
         "detail": "backend.app.schemas.user",
         "documentation": {}
     },
     {
-        "label": "hash_password",
-        "kind": 2,
-        "importPath": "backend.app.utils.security",
-        "description": "backend.app.utils.security",
-        "peekOfCode": "def hash_password(password: str):\n    return pwd_context.hash(password)\ndef verify_password(password: str, hashed: str):\n    return pwd_context.verify(password, hashed)\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(hours=EXPIRE_HOURS)\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)",
-        "detail": "backend.app.utils.security",
+        "label": "AuthResponse",
+        "kind": 6,
+        "importPath": "backend.app.schemas.user",
+        "description": "backend.app.schemas.user",
+        "peekOfCode": "class AuthResponse(BaseModel):\n    access_token: str\n    token_type: str\n    user: UserResponse",
+        "detail": "backend.app.schemas.user",
         "documentation": {}
     },
     {
@@ -630,7 +1027,16 @@
         "kind": 2,
         "importPath": "backend.app.utils.security",
         "description": "backend.app.utils.security",
-        "peekOfCode": "def verify_password(password: str, hashed: str):\n    return pwd_context.verify(password, hashed)\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(hours=EXPIRE_HOURS)\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)",
+        "peekOfCode": "def verify_password(plain_password: str, hashed_password: str) -> bool:\n    \"\"\"Vérifie si le mot de passe correspond au hash\"\"\"\n    return pwd_context.verify(plain_password, hashed_password)\ndef hash_password(password: str) -> str:\n    \"\"\"Hash un mot de passe\"\"\"\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:\n    \"\"\"Crée un token JWT\"\"\"\n    to_encode = data.copy()\n    if expires_delta:",
+        "detail": "backend.app.utils.security",
+        "documentation": {}
+    },
+    {
+        "label": "hash_password",
+        "kind": 2,
+        "importPath": "backend.app.utils.security",
+        "description": "backend.app.utils.security",
+        "peekOfCode": "def hash_password(password: str) -> str:\n    \"\"\"Hash un mot de passe\"\"\"\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:\n    \"\"\"Crée un token JWT\"\"\"\n    to_encode = data.copy()\n    if expires_delta:\n        expire = datetime.utcnow() + expires_delta\n    else:\n        expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)",
         "detail": "backend.app.utils.security",
         "documentation": {}
     },
@@ -639,34 +1045,7 @@
         "kind": 2,
         "importPath": "backend.app.utils.security",
         "description": "backend.app.utils.security",
-        "peekOfCode": "def create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(hours=EXPIRE_HOURS)\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)",
-        "detail": "backend.app.utils.security",
-        "documentation": {}
-    },
-    {
-        "label": "SECRET_KEY",
-        "kind": 5,
-        "importPath": "backend.app.utils.security",
-        "description": "backend.app.utils.security",
-        "peekOfCode": "SECRET_KEY = os.getenv(\"SECRET_KEY\")\nALGORITHM = os.getenv(\"ALGORITHM\")\nEXPIRE_HOURS = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_HOURS\", 1))\npwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\ndef hash_password(password: str):\n    return pwd_context.hash(password)\ndef verify_password(password: str, hashed: str):\n    return pwd_context.verify(password, hashed)\ndef create_access_token(data: dict):\n    to_encode = data.copy()",
-        "detail": "backend.app.utils.security",
-        "documentation": {}
-    },
-    {
-        "label": "ALGORITHM",
-        "kind": 5,
-        "importPath": "backend.app.utils.security",
-        "description": "backend.app.utils.security",
-        "peekOfCode": "ALGORITHM = os.getenv(\"ALGORITHM\")\nEXPIRE_HOURS = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_HOURS\", 1))\npwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\ndef hash_password(password: str):\n    return pwd_context.hash(password)\ndef verify_password(password: str, hashed: str):\n    return pwd_context.verify(password, hashed)\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(hours=EXPIRE_HOURS)",
-        "detail": "backend.app.utils.security",
-        "documentation": {}
-    },
-    {
-        "label": "EXPIRE_HOURS",
-        "kind": 5,
-        "importPath": "backend.app.utils.security",
-        "description": "backend.app.utils.security",
-        "peekOfCode": "EXPIRE_HOURS = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_HOURS\", 1))\npwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\ndef hash_password(password: str):\n    return pwd_context.hash(password)\ndef verify_password(password: str, hashed: str):\n    return pwd_context.verify(password, hashed)\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(hours=EXPIRE_HOURS)\n    to_encode.update({\"exp\": expire})",
+        "peekOfCode": "def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:\n    \"\"\"Crée un token JWT\"\"\"\n    to_encode = data.copy()\n    if expires_delta:\n        expire = datetime.utcnow() + expires_delta\n    else:\n        expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    to_encode.update({\"exp\": expire, \"iat\": datetime.utcnow()})\n    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)\n    return encoded_jwt",
         "detail": "backend.app.utils.security",
         "documentation": {}
     },
@@ -675,7 +1054,34 @@
         "kind": 5,
         "importPath": "backend.app.utils.security",
         "description": "backend.app.utils.security",
-        "peekOfCode": "pwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\ndef hash_password(password: str):\n    return pwd_context.hash(password)\ndef verify_password(password: str, hashed: str):\n    return pwd_context.verify(password, hashed)\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(hours=EXPIRE_HOURS)\n    to_encode.update({\"exp\": expire})\n    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)",
+        "peekOfCode": "pwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\nSECRET_KEY = os.getenv(\"SECRET_KEY\", \"votre_secret_key_super_securisee_ici_changez_cela_en_production\")\nALGORITHM = os.getenv(\"ALGORITHM\", \"HS256\")\nACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_MINUTES\", \"30\"))\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    \"\"\"Vérifie si le mot de passe correspond au hash\"\"\"\n    return pwd_context.verify(plain_password, hashed_password)\ndef hash_password(password: str) -> str:\n    \"\"\"Hash un mot de passe\"\"\"\n    return pwd_context.hash(password)",
+        "detail": "backend.app.utils.security",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "backend.app.utils.security",
+        "description": "backend.app.utils.security",
+        "peekOfCode": "SECRET_KEY = os.getenv(\"SECRET_KEY\", \"votre_secret_key_super_securisee_ici_changez_cela_en_production\")\nALGORITHM = os.getenv(\"ALGORITHM\", \"HS256\")\nACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_MINUTES\", \"30\"))\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    \"\"\"Vérifie si le mot de passe correspond au hash\"\"\"\n    return pwd_context.verify(plain_password, hashed_password)\ndef hash_password(password: str) -> str:\n    \"\"\"Hash un mot de passe\"\"\"\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:",
+        "detail": "backend.app.utils.security",
+        "documentation": {}
+    },
+    {
+        "label": "ALGORITHM",
+        "kind": 5,
+        "importPath": "backend.app.utils.security",
+        "description": "backend.app.utils.security",
+        "peekOfCode": "ALGORITHM = os.getenv(\"ALGORITHM\", \"HS256\")\nACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_MINUTES\", \"30\"))\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    \"\"\"Vérifie si le mot de passe correspond au hash\"\"\"\n    return pwd_context.verify(plain_password, hashed_password)\ndef hash_password(password: str) -> str:\n    \"\"\"Hash un mot de passe\"\"\"\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:\n    \"\"\"Crée un token JWT\"\"\"",
+        "detail": "backend.app.utils.security",
+        "documentation": {}
+    },
+    {
+        "label": "ACCESS_TOKEN_EXPIRE_MINUTES",
+        "kind": 5,
+        "importPath": "backend.app.utils.security",
+        "description": "backend.app.utils.security",
+        "peekOfCode": "ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_MINUTES\", \"30\"))\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    \"\"\"Vérifie si le mot de passe correspond au hash\"\"\"\n    return pwd_context.verify(plain_password, hashed_password)\ndef hash_password(password: str) -> str:\n    \"\"\"Hash un mot de passe\"\"\"\n    return pwd_context.hash(password)\ndef create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:\n    \"\"\"Crée un token JWT\"\"\"\n    to_encode = data.copy()",
         "detail": "backend.app.utils.security",
         "documentation": {}
     },
@@ -689,11 +1095,11 @@
         "documentation": {}
     },
     {
-        "label": "DATABASE_URL",
+        "label": "SQLALCHEMY_DATABASE_URL",
         "kind": 5,
         "importPath": "backend.app.database",
         "description": "backend.app.database",
-        "peekOfCode": "DATABASE_URL = os.getenv(\"DATABASE_URL\")\nengine = create_engine(\n    DATABASE_URL,\n    connect_args={\"check_same_thread\": False} if \"sqlite\" in DATABASE_URL else {}\n)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:",
+        "peekOfCode": "SQLALCHEMY_DATABASE_URL = os.getenv(\n    \"DATABASE_URL\", \n    \"postgresql://postgres:password@localhost/fastapi_auth\"\n)\nengine = create_engine(SQLALCHEMY_DATABASE_URL)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:",
         "detail": "backend.app.database",
         "documentation": {}
     },
@@ -702,7 +1108,7 @@
         "kind": 5,
         "importPath": "backend.app.database",
         "description": "backend.app.database",
-        "peekOfCode": "engine = create_engine(\n    DATABASE_URL,\n    connect_args={\"check_same_thread\": False} if \"sqlite\" in DATABASE_URL else {}\n)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db",
+        "peekOfCode": "engine = create_engine(SQLALCHEMY_DATABASE_URL)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
         "detail": "backend.app.database",
         "documentation": {}
     },
@@ -729,7 +1135,7 @@
         "kind": 2,
         "importPath": "backend.app.dependencies",
         "description": "backend.app.dependencies",
-        "peekOfCode": "def get_current_user(\n    token: str = Depends(oauth2_scheme),\n    db: Session = Depends(get_db)\n):\n    try:\n        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])\n        user_id = payload.get(\"sub\")\n    except JWTError:\n        raise HTTPException(status_code=401, detail=\"Invalid token\")\n    user = db.query(User).filter(User.id == int(user_id)).first()",
+        "peekOfCode": "def get_current_user(\n    token: str = Depends(oauth2_scheme),\n    db: Session = Depends(get_db)\n) -> User:\n    \"\"\"Récupère l'utilisateur actuel à partir du token JWT\"\"\"\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail=\"Token invalide ou expiré\",\n        headers={\"WWW-Authenticate\": \"Bearer\"},\n    )",
         "detail": "backend.app.dependencies",
         "documentation": {}
     },
@@ -738,7 +1144,7 @@
         "kind": 2,
         "importPath": "backend.app.dependencies",
         "description": "backend.app.dependencies",
-        "peekOfCode": "def admin_only(current_user: User = Depends(get_current_user)):\n    if current_user.role != \"admin\":\n        raise HTTPException(status_code=403, detail=\"Admin only\")\n    return current_user",
+        "peekOfCode": "def admin_only(user: User = Depends(get_current_user)) -> User:\n    \"\"\"Vérifie que l'utilisateur est un administrateur\"\"\"\n    if user.role != \"admin\":\n        raise HTTPException(\n            status_code=status.HTTP_403_FORBIDDEN,\n            detail=\"Accès réservé aux administrateurs\"\n        )\n    return user",
         "detail": "backend.app.dependencies",
         "documentation": {}
     },
@@ -747,7 +1153,7 @@
         "kind": 5,
         "importPath": "backend.app.dependencies",
         "description": "backend.app.dependencies",
-        "peekOfCode": "oauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"/auth/login\")\nSECRET_KEY = os.getenv(\"SECRET_KEY\")\nALGORITHM = os.getenv(\"ALGORITHM\")\ndef get_current_user(\n    token: str = Depends(oauth2_scheme),\n    db: Session = Depends(get_db)\n):\n    try:\n        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])\n        user_id = payload.get(\"sub\")",
+        "peekOfCode": "oauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"/auth/login\")\nSECRET_KEY = os.getenv(\"SECRET_KEY\", \"votre_secret_key_super_securisee_ici_changez_cela_en_production\")\nALGORITHM = os.getenv(\"ALGORITHM\", \"HS256\")\ndef get_current_user(\n    token: str = Depends(oauth2_scheme),\n    db: Session = Depends(get_db)\n) -> User:\n    \"\"\"Récupère l'utilisateur actuel à partir du token JWT\"\"\"\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,",
         "detail": "backend.app.dependencies",
         "documentation": {}
     },
@@ -756,7 +1162,7 @@
         "kind": 5,
         "importPath": "backend.app.dependencies",
         "description": "backend.app.dependencies",
-        "peekOfCode": "SECRET_KEY = os.getenv(\"SECRET_KEY\")\nALGORITHM = os.getenv(\"ALGORITHM\")\ndef get_current_user(\n    token: str = Depends(oauth2_scheme),\n    db: Session = Depends(get_db)\n):\n    try:\n        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])\n        user_id = payload.get(\"sub\")\n    except JWTError:",
+        "peekOfCode": "SECRET_KEY = os.getenv(\"SECRET_KEY\", \"votre_secret_key_super_securisee_ici_changez_cela_en_production\")\nALGORITHM = os.getenv(\"ALGORITHM\", \"HS256\")\ndef get_current_user(\n    token: str = Depends(oauth2_scheme),\n    db: Session = Depends(get_db)\n) -> User:\n    \"\"\"Récupère l'utilisateur actuel à partir du token JWT\"\"\"\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail=\"Token invalide ou expiré\",",
         "detail": "backend.app.dependencies",
         "documentation": {}
     },
@@ -765,8 +1171,26 @@
         "kind": 5,
         "importPath": "backend.app.dependencies",
         "description": "backend.app.dependencies",
-        "peekOfCode": "ALGORITHM = os.getenv(\"ALGORITHM\")\ndef get_current_user(\n    token: str = Depends(oauth2_scheme),\n    db: Session = Depends(get_db)\n):\n    try:\n        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])\n        user_id = payload.get(\"sub\")\n    except JWTError:\n        raise HTTPException(status_code=401, detail=\"Invalid token\")",
+        "peekOfCode": "ALGORITHM = os.getenv(\"ALGORITHM\", \"HS256\")\ndef get_current_user(\n    token: str = Depends(oauth2_scheme),\n    db: Session = Depends(get_db)\n) -> User:\n    \"\"\"Récupère l'utilisateur actuel à partir du token JWT\"\"\"\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail=\"Token invalide ou expiré\",\n        headers={\"WWW-Authenticate\": \"Bearer\"},",
         "detail": "backend.app.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "read_root",
+        "kind": 2,
+        "importPath": "backend.app.main",
+        "description": "backend.app.main",
+        "peekOfCode": "def read_root():\n    return {\n        \"message\": \"FastAPI Auth System\",\n        \"version\": \"1.0.0\",\n        \"docs\": \"/docs\",\n        \"endpoints\": {\n            \"auth\": {\n                \"login\": \"POST /auth/login\",\n                \"register\": \"POST /auth/register\"\n            },",
+        "detail": "backend.app.main",
+        "documentation": {}
+    },
+    {
+        "label": "health_check",
+        "kind": 2,
+        "importPath": "backend.app.main",
+        "description": "backend.app.main",
+        "peekOfCode": "def health_check():\n    return {\"status\": \"healthy\"}",
+        "detail": "backend.app.main",
         "documentation": {}
     },
     {
@@ -774,8 +1198,386 @@
         "kind": 5,
         "importPath": "backend.app.main",
         "description": "backend.app.main",
-        "peekOfCode": "app = FastAPI(title=\"FastAPI Auth System\")\napp.include_router(auth.router)\napp.include_router(users.router)",
+        "peekOfCode": "app = FastAPI(\n    title=\"FastAPI Auth System\",\n    description=\"Système d'authentification avec FastAPI\",\n    version=\"1.0.0\",\n    docs_url=\"/docs\",\n    redoc_url=\"/redoc\"\n)\n# Configuration CORS\napp.add_middleware(\n    CORSMiddleware,",
         "detail": "backend.app.main",
+        "documentation": {}
+    },
+    {
+        "label": "Map",
+        "kind": 6,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "peekOfCode": "class Map:\n  def __init__(self, name, language):\n    self.paths = {}\n    self.name = name\n    self.language = language\n    self.width = 0\n    self.height = 0\n    self.bbox = []\n  def addPath(self, path, code, name):\n    self.paths[code] = {\"path\": path, \"name\": name}",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "documentation": {}
+    },
+    {
+        "label": "Converter",
+        "kind": 6,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "peekOfCode": "class Converter:\n  def __init__(self, config):\n    args = {\n      'buffer_distance': -0.4,\n      'simplify_tolerance': 0.2,\n      'longitude0': 0,\n      'projection': 'mill',\n      'name': 'world',\n      'width': 900,\n      'language': 'en',",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "documentation": {}
+    },
+    {
+        "label": "args",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "peekOfCode": "args = {}\nif len(sys.argv) > 1:\n  paramsJson = open(sys.argv[1], 'r').read()\nelse:\n  paramsJson = sys.stdin.read()\nparamsJson = json.loads(paramsJson)\nconverter = Converter(paramsJson)\nconverter.convert(paramsJson['output_file'])",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "documentation": {}
+    },
+    {
+        "label": "paramsJson",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "peekOfCode": "paramsJson = json.loads(paramsJson)\nconverter = Converter(paramsJson)\nconverter.convert(paramsJson['output_file'])",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "documentation": {}
+    },
+    {
+        "label": "converter",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "peekOfCode": "converter = Converter(paramsJson)\nconverter.convert(paramsJson['output_file'])",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.converter",
+        "documentation": {}
+    },
+    {
+        "label": "Map",
+        "kind": 6,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "peekOfCode": "class Map:\n  def __init__(self, name, language):\n    self.paths = {}\n    self.name = name\n    self.language = language\n    self.width = 0\n    self.height = 0\n    self.bbox = []\n  def addPath(self, path, code, name):\n    self.paths[code] = {\"path\": path, \"name\": name}",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "documentation": {}
+    },
+    {
+        "label": "Converter",
+        "kind": 6,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "peekOfCode": "class Converter:\n  def __init__(self, config):\n    args = {\n      'buffer_distance': -0.4,\n      'simplify_tolerance': 0.2,\n      'longitude0': 0,\n      'projection': 'mill',\n      'name': 'world',\n      'width': 900,\n      'left': 0,",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "documentation": {}
+    },
+    {
+        "label": "Geometry",
+        "kind": 6,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "peekOfCode": "class Geometry:\n  def __init__(self, geometry, properties):\n    self.geom = geometry\n    self.properties = properties\nclass GeometryProperty(Variable):\n  operations = set([\"equality\", \"membership\"])\n  def __init__(self, name):\n    self.name = name\n  def equals(self, value, context):\n    return context[self.name] == value",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "documentation": {}
+    },
+    {
+        "label": "GeometryProperty",
+        "kind": 6,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "peekOfCode": "class GeometryProperty(Variable):\n  operations = set([\"equality\", \"membership\"])\n  def __init__(self, name):\n    self.name = name\n  def equals(self, value, context):\n    return context[self.name] == value\n  def belongs_to(self, value, context):\n    return value in context[self.name]\n  def is_subset(self, value, context):\n    return set(value).issubset(set(context[self.name]))",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "documentation": {}
+    },
+    {
+        "label": "DataSource",
+        "kind": 6,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "peekOfCode": "class DataSource:\n  def __init__(self, config):\n    default_config = {\n      \"projection\": \"merc\",\n      \"longitude0\": 0\n    }\n    default_config.update(config)\n    self.config = default_config\n    self.spatialRef = osr.SpatialReference()\n    projString = '+proj='+str(self.config['projection'])+' +a=6381372 +b=6381372 +lat_0=0'",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "documentation": {}
+    },
+    {
+        "label": "PolygonSimplifier",
+        "kind": 6,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "peekOfCode": "class PolygonSimplifier:\n  def __init__(self, geometries):\n    self.format = '%.8f %.8f'\n    self.tolerance = 0.05\n    self.geometries = geometries\n    connections = {}\n    for geom in geometries:\n      polygons = []\n      if isinstance(geom, shapely.geometry.Polygon):\n        polygons.append(geom)",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "documentation": {}
+    },
+    {
+        "label": "Processor",
+        "kind": 6,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "peekOfCode": "class Processor:\n  def __init__(self, config):\n    self.config = config\n  def process(self):\n    self.data_sources = {}\n    for action in self.config:\n      data_source_key = action.get('data_source', '.')\n      getattr(self, action['name'])( action, self.data_sources.get(data_source_key) )\n  def read_data(self, config, data_source):\n    data_source_key = config.get('data_source', '.')",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "documentation": {}
+    },
+    {
+        "label": "args",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "peekOfCode": "args = {}\nif len(sys.argv) > 1:\n  paramsJson = open(sys.argv[1], 'r').read()\nelse:\n  paramsJson = sys.stdin.read()\nparamsJson = json.loads(paramsJson)\nprocessor = Processor(paramsJson)\nprocessor.process()",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "documentation": {}
+    },
+    {
+        "label": "paramsJson",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "peekOfCode": "paramsJson = json.loads(paramsJson)\nprocessor = Processor(paramsJson)\nprocessor.process()",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "documentation": {}
+    },
+    {
+        "label": "processor",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "peekOfCode": "processor = Processor(paramsJson)\nprocessor.process()",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.processor",
+        "documentation": {}
+    },
+    {
+        "label": "simplifyRing",
+        "kind": 2,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "def simplifyRing(ring):\n  coords = list(ring.coords)[0:-1]\n  simpleCoords = []\n  isPivot = False\n  pointIndex = 0\n  while not isPivot and pointIndex < len(coords):\n    pointStr = format % coords[pointIndex]\n    pointIndex += 1\n    isPivot = ((len(connections[pointStr]) > 2) or (pointStr in pivotPoints))\n  pointIndex = pointIndex - 1",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "simplifyPolygon",
+        "kind": 2,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "def simplifyPolygon(polygon):\n  simpleExtRing = simplifyRing(polygon.exterior)\n  if simpleExtRing is None:\n    return None\n  simpleIntRings = []\n  for ring in polygon.interiors:\n    simpleIntRing = simplifyRing(ring)\n    if simpleIntRing is not None:\n      simpleIntRings.append(simpleIntRing)\n  return shapely.geometry.Polygon(simpleExtRing, simpleIntRings)",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "format",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "format = '%.8f %.8f'\ntolerance = 0.01\ninfile = '/Users/kirilllebedev/Maps/50m-admin-0-countries/ne_50m_admin_0_countries.shp'\noutfile = 'map.shp'\n# Open the datasource to operate on.\nin_ds = ogr.Open( infile, update = 0 )\nin_layer = in_ds.GetLayer( 0 )\nin_defn = in_layer.GetLayerDefn()\n# Create output file with similar information.\nshp_driver = ogr.GetDriverByName( 'ESRI Shapefile' )",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "tolerance",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "tolerance = 0.01\ninfile = '/Users/kirilllebedev/Maps/50m-admin-0-countries/ne_50m_admin_0_countries.shp'\noutfile = 'map.shp'\n# Open the datasource to operate on.\nin_ds = ogr.Open( infile, update = 0 )\nin_layer = in_ds.GetLayer( 0 )\nin_defn = in_layer.GetLayerDefn()\n# Create output file with similar information.\nshp_driver = ogr.GetDriverByName( 'ESRI Shapefile' )\nif os.path.exists('map.shp'):",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "infile",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "infile = '/Users/kirilllebedev/Maps/50m-admin-0-countries/ne_50m_admin_0_countries.shp'\noutfile = 'map.shp'\n# Open the datasource to operate on.\nin_ds = ogr.Open( infile, update = 0 )\nin_layer = in_ds.GetLayer( 0 )\nin_defn = in_layer.GetLayerDefn()\n# Create output file with similar information.\nshp_driver = ogr.GetDriverByName( 'ESRI Shapefile' )\nif os.path.exists('map.shp'):\n  shp_driver.DeleteDataSource( outfile )",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "outfile",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "outfile = 'map.shp'\n# Open the datasource to operate on.\nin_ds = ogr.Open( infile, update = 0 )\nin_layer = in_ds.GetLayer( 0 )\nin_defn = in_layer.GetLayerDefn()\n# Create output file with similar information.\nshp_driver = ogr.GetDriverByName( 'ESRI Shapefile' )\nif os.path.exists('map.shp'):\n  shp_driver.DeleteDataSource( outfile )\nshp_ds = shp_driver.CreateDataSource( outfile )",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "in_ds",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "in_ds = ogr.Open( infile, update = 0 )\nin_layer = in_ds.GetLayer( 0 )\nin_defn = in_layer.GetLayerDefn()\n# Create output file with similar information.\nshp_driver = ogr.GetDriverByName( 'ESRI Shapefile' )\nif os.path.exists('map.shp'):\n  shp_driver.DeleteDataSource( outfile )\nshp_ds = shp_driver.CreateDataSource( outfile )\nshp_layer = shp_ds.CreateLayer( in_defn.GetName(),\n                                geom_type = in_defn.GetGeomType(),",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "in_layer",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "in_layer = in_ds.GetLayer( 0 )\nin_defn = in_layer.GetLayerDefn()\n# Create output file with similar information.\nshp_driver = ogr.GetDriverByName( 'ESRI Shapefile' )\nif os.path.exists('map.shp'):\n  shp_driver.DeleteDataSource( outfile )\nshp_ds = shp_driver.CreateDataSource( outfile )\nshp_layer = shp_ds.CreateLayer( in_defn.GetName(),\n                                geom_type = in_defn.GetGeomType(),\n                                srs = in_layer.GetSpatialRef() )",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "in_defn",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "in_defn = in_layer.GetLayerDefn()\n# Create output file with similar information.\nshp_driver = ogr.GetDriverByName( 'ESRI Shapefile' )\nif os.path.exists('map.shp'):\n  shp_driver.DeleteDataSource( outfile )\nshp_ds = shp_driver.CreateDataSource( outfile )\nshp_layer = shp_ds.CreateLayer( in_defn.GetName(),\n                                geom_type = in_defn.GetGeomType(),\n                                srs = in_layer.GetSpatialRef() )\nin_field_count = in_defn.GetFieldCount()",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "shp_driver",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "shp_driver = ogr.GetDriverByName( 'ESRI Shapefile' )\nif os.path.exists('map.shp'):\n  shp_driver.DeleteDataSource( outfile )\nshp_ds = shp_driver.CreateDataSource( outfile )\nshp_layer = shp_ds.CreateLayer( in_defn.GetName(),\n                                geom_type = in_defn.GetGeomType(),\n                                srs = in_layer.GetSpatialRef() )\nin_field_count = in_defn.GetFieldCount()\nfor fld_index in range(in_field_count):\n    src_fd = in_defn.GetFieldDefn( fld_index )",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "shp_ds",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "shp_ds = shp_driver.CreateDataSource( outfile )\nshp_layer = shp_ds.CreateLayer( in_defn.GetName(),\n                                geom_type = in_defn.GetGeomType(),\n                                srs = in_layer.GetSpatialRef() )\nin_field_count = in_defn.GetFieldCount()\nfor fld_index in range(in_field_count):\n    src_fd = in_defn.GetFieldDefn( fld_index )\n    fd = ogr.FieldDefn( src_fd.GetName(), src_fd.GetType() )\n    fd.SetWidth( src_fd.GetWidth() )\n    fd.SetPrecision( src_fd.GetPrecision() )",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "shp_layer",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "shp_layer = shp_ds.CreateLayer( in_defn.GetName(),\n                                geom_type = in_defn.GetGeomType(),\n                                srs = in_layer.GetSpatialRef() )\nin_field_count = in_defn.GetFieldCount()\nfor fld_index in range(in_field_count):\n    src_fd = in_defn.GetFieldDefn( fld_index )\n    fd = ogr.FieldDefn( src_fd.GetName(), src_fd.GetType() )\n    fd.SetWidth( src_fd.GetWidth() )\n    fd.SetPrecision( src_fd.GetPrecision() )\n    shp_layer.CreateField( fd )",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "in_field_count",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "in_field_count = in_defn.GetFieldCount()\nfor fld_index in range(in_field_count):\n    src_fd = in_defn.GetFieldDefn( fld_index )\n    fd = ogr.FieldDefn( src_fd.GetName(), src_fd.GetType() )\n    fd.SetWidth( src_fd.GetWidth() )\n    fd.SetPrecision( src_fd.GetPrecision() )\n    shp_layer.CreateField( fd )\n# Load geometries\ngeometries = []\nfor feature in in_layer:",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "geometries",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "geometries = []\nfor feature in in_layer:\n  geometry = feature.GetGeometryRef()\n  geometryType = geometry.GetGeometryType()\n  if geometryType == ogr.wkbPolygon or geometryType == ogr.wkbMultiPolygon:\n    shapelyGeometry = shapely.wkb.loads( geometry.ExportToWkb() )\n    #if not shapelyGeometry.is_valid:\n      #buffer to fix selfcrosses\n      #shapelyGeometry = shapelyGeometry.buffer(0)\n    if shapelyGeometry:",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "start",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "start = int(round(time.time() * 1000))\n# Simplification\npoints = []\nconnections = {}\ncounter = 0\nfor geom in geometries:\n  counter += 1\n  polygons = []\n  if isinstance(geom, shapely.geometry.Polygon):\n    polygons.append(geom)",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "points",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "points = []\nconnections = {}\ncounter = 0\nfor geom in geometries:\n  counter += 1\n  polygons = []\n  if isinstance(geom, shapely.geometry.Polygon):\n    polygons.append(geom)\n  else:\n    for polygon in geom:",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "connections",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "connections = {}\ncounter = 0\nfor geom in geometries:\n  counter += 1\n  polygons = []\n  if isinstance(geom, shapely.geometry.Polygon):\n    polygons.append(geom)\n  else:\n    for polygon in geom:\n      polygons.append(polygon)",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "counter",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "counter = 0\nfor geom in geometries:\n  counter += 1\n  polygons = []\n  if isinstance(geom, shapely.geometry.Polygon):\n    polygons.append(geom)\n  else:\n    for polygon in geom:\n      polygons.append(polygon)\n  for polygon in polygons:",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "simplifiedLines",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "simplifiedLines = {}\npivotPoints = {}\ndef simplifyRing(ring):\n  coords = list(ring.coords)[0:-1]\n  simpleCoords = []\n  isPivot = False\n  pointIndex = 0\n  while not isPivot and pointIndex < len(coords):\n    pointStr = format % coords[pointIndex]\n    pointIndex += 1",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "pivotPoints",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "pivotPoints = {}\ndef simplifyRing(ring):\n  coords = list(ring.coords)[0:-1]\n  simpleCoords = []\n  isPivot = False\n  pointIndex = 0\n  while not isPivot and pointIndex < len(coords):\n    pointStr = format % coords[pointIndex]\n    pointIndex += 1\n    isPivot = ((len(connections[pointStr]) > 2) or (pointStr in pivotPoints))",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "results",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "results = []\nfor geom in geometries:\n  polygons = []\n  simplePolygons = []\n  if isinstance(geom, shapely.geometry.Polygon):\n    polygons.append(geom)\n  else:\n    for polygon in geom:\n      polygons.append(polygon)\n  for polygon in polygons:",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "in_feat",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "in_feat = in_layer.GetNextFeature()\ncounter = 0\nwhile in_feat is not None:\n  if results[counter] is not None:\n    out_feat = ogr.Feature( feature_def = shp_layer.GetLayerDefn() )\n    out_feat.SetFrom( in_feat )\n    out_feat.SetGeometryDirectly(\n      ogr.CreateGeometryFromWkb(\n        shapely.wkb.dumps(\n          results[counter]",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "counter",
+        "kind": 5,
+        "importPath": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "description": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "peekOfCode": "counter = 0\nwhile in_feat is not None:\n  if results[counter] is not None:\n    out_feat = ogr.Feature( feature_def = shp_layer.GetLayerDefn() )\n    out_feat.SetFrom( in_feat )\n    out_feat.SetGeometryDirectly(\n      ogr.CreateGeometryFromWkb(\n        shapely.wkb.dumps(\n          results[counter]\n        )",
+        "detail": "frontend.node_modules.@react-jvectormap.lib.converter.simplifier",
+        "documentation": {}
+    },
+    {
+        "label": "_Known",
+        "kind": 6,
+        "importPath": "frontend.node_modules.flatted.python.flatted",
+        "description": "frontend.node_modules.flatted.python.flatted",
+        "peekOfCode": "class _Known:\n    def __init__(self):\n        self.key = []\n        self.value = []\nclass _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    keys = []\n    i = 0",
+        "detail": "frontend.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "_String",
+        "kind": 6,
+        "importPath": "frontend.node_modules.flatted.python.flatted",
+        "description": "frontend.node_modules.flatted.python.flatted",
+        "peekOfCode": "class _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    keys = []\n    i = 0\n    for _ in value:\n        keys.append(i)\n        i += 1\n    return keys",
+        "detail": "frontend.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "parse",
+        "kind": 2,
+        "importPath": "frontend.node_modules.flatted.python.flatted",
+        "description": "frontend.node_modules.flatted.python.flatted",
+        "peekOfCode": "def parse(value, *args, **kwargs):\n    json = _json.loads(value, *args, **kwargs)\n    wrapped = []\n    for value in json:\n        wrapped.append(_wrap(value))\n    input = []\n    for value in wrapped:\n        if isinstance(value, _String):\n            input.append(value.value)\n        else:",
+        "detail": "frontend.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "stringify",
+        "kind": 2,
+        "importPath": "frontend.node_modules.flatted.python.flatted",
+        "description": "frontend.node_modules.flatted.python.flatted",
+        "peekOfCode": "def stringify(value, *args, **kwargs):\n    known = _Known()\n    input = []\n    output = []\n    i = int(_index(known, input, value))\n    while i < len(input):\n        output.append(_transform(known, input, input[i]))\n        i += 1\n    return _json.dumps(output, *args, **kwargs)",
+        "detail": "frontend.node_modules.flatted.python.flatted",
         "documentation": {}
     }
 ]

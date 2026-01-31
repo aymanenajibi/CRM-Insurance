@@ -30,6 +30,19 @@ Content-Type: application/json
   "password": "user123"
 }
 
+
+###################################################
+### REGISTER NEW USER (admin)
+###################################################
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "username": "zouhair",
+  "email": "zouhair@mail.com",
+  "password": "password123456"
+}
+
 ###################################################
 ### CREATE USER (ADMIN ONLY)
 ###################################################
