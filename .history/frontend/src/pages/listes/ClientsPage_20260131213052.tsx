@@ -1,20 +1,24 @@
+// pages/ClientsPage.tsx
+import ClientsTable from "../../components/clients/ClientsTable";
 import PageMeta from "../../components/common/PageMeta";
-import UsersTable from "../../components/Users/UsersTable";
 import ProtectedRoute from "../../components/common/ProtectedRoute";
 
-export default function UsersPage() {
+export default function ClientsPage() {
   return (
+
+    <> 
     <ProtectedRoute requireAdmin>
       <>
         <PageMeta
-          title="Gestion des utilisateurs | Admin"
-          description="Page d'administration des utilisateurs"
+          title="Gestion des Clients | PoliSYS"
+          description="Page de gestion des clients"
         />
         
         <div className="p-6">
-          <UsersTable />
+          <ClientsTable />
         </div>
       </>
     </ProtectedRoute>
+    </>
   );
 }
