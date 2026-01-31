@@ -22,19 +22,3 @@ def get_db():
         yield db
     finally:
         db.close()
-
-
-# ---------- CREER LES TABLES ----------
-
-# Importer tous les modèles ici pour que SQLAlchemy sache qu'ils existent
-from app.models.user import User
-from app.models.client import Client
-from app.models.vehicule import Vehicule
-from app.models.police import Police
-from app.models.devis import Devis
-from app.models.quittance import Quittance
-
-# Crée toutes les tables dans la DB
-def init_db():
-    Base.metadata.create_all(bind=engine)
-    print("✅ Tables créées avec succès")
