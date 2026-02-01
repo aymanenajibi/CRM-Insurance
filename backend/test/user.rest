@@ -38,8 +38,8 @@ Authorization: Bearer {{adminToken}}
 Content-Type: application/json
 
 {
-  "username": "user2",
-  "email": "user2@mail.com",
+  "username": "zouhair",
+  "email": "zouhair@mail.com",
   "password": "123456",
   "role": "user"
 }
@@ -119,6 +119,7 @@ Content-Type: application/json
 }
 
 
+<<<<<<< Updated upstream
 _______________________________________________________
 
 
@@ -195,4 +196,40 @@ Authorization: Bearer {{adminToken}}
 ### DELETE QUITTANCE (ADMIN)
 ###################################
 DELETE {{baseUrl}}/quittance/delete/1
+=======
+
+
+### 1. Create a New Vehicule
+POST {{baseUrl}}/vehicules/
+Content-Type: application/json
+
+{
+    "matricule": "65432-B-155",
+    "marque": "Dacia",
+    "model": "stepway",
+    "date_mise_en_circulation": "2026-02-01",
+    "valeur_venale": 150000.0,
+    "puissance_fiscale": 5.0
+}
+
+### Update a Vehicule
+PUT {{baseUrl}}/vehicules/1
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+    "valeur_venale": 165000,
+    "marque": "Renault (Updated)"
+}
+### Get All Vehicules
+GET {{baseUrl}}/vehicules/
+Authorization: Bearer {{adminToken}}
+
+### 3. Get One Vehicule
+GET {{baseUrl}}/vehicules/1
+Authorization: Bearer {{adminToken}}
+
+### 4. Delete a Vehicule
+DELETE {{baseUrl}}/vehicules/1
+>>>>>>> Stashed changes
 Authorization: Bearer {{adminToken}}

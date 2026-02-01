@@ -39,7 +39,7 @@ const navItems: NavItem[] = [
   {
     icon: <CarIcon />,
     name: "Véhicule",
-    path: "#",
+    path: "vehicules",
   },
   {
     icon: <FileIcon />,

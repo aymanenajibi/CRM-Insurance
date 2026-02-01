@@ -3,7 +3,7 @@ export interface Client {
   id: number;
   nom_complet: string;
   cin: string;
-  date_naissance: string; // Format: YYYY-MM-DD
+  date_naissance: string; 
   ville: string;
   type_permis: string;
   created_at: string;
