@@ -1,6 +1,6 @@
 @baseUrl = http://127.0.0.1:8000
-@adminToken =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzY5Nzg5NDIyfQ.r4ElPo0Idsea3UMZ3vrYf0TCY189VRKC9e3mRShjdw0
-@userToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzY5Nzg5NDIyfQ.r4ElPo0Idsea3UMZ3vrYf0TCY189VRKC9e3mRShjdw0
+@adminToken =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzY5OTUxNjI4LCJpYXQiOjE3Njk5NDk4Mjh9.9vEZDVN9ijOnrd2qVhYwvYsXREy6_JSbrmGgYlWj82I
+@userToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzY5OTUxNjI4LCJpYXQiOjE3Njk5NDk4Mjh9.9vEZDVN9ijOnrd2qVhYwvYsXREy6_JSbrmGgYlWj82I
 
 ###################################################
 ### GET ALL USERS (ADMIN ONLY)
@@ -117,3 +117,82 @@ Content-Type: application/json
   "email": "user_updated@mail.com",
   "password": "newpassword123"
 }
+
+
+_______________________________________________________
+
+
+###################################
+### GET ALL DEVIS
+###################################
+GET {{baseUrl}}/devis/all
+Authorization: Bearer {{adminToken}}
+
+###################################
+### CREATE DEVIS
+###################################
+POST {{baseUrl}}/devis/create
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "fk_client_id": 1,
+  "fk_vehicule_id": 1,
+  "fk_police_id": 1,
+  "date_effet": "2026-02-01",
+  "date_echeance": "2027-01-31",
+  "prime_total": 4500
+}
+
+###################################
+### UPDATE DEVIS
+###################################
+PUT {{baseUrl}}/devis/update/1
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "prime_total": 5200
+}
+
+###################################
+### DELETE DEVIS (ADMIN)
+###################################
+DELETE {{baseUrl}}/devis/delete/1
+Authorization: Bearer {{adminToken}}
+
+###################################
+### GET ALL QUITTANCES
+###################################
+GET {{baseUrl}}/quittance/all
+Authorization: Bearer {{adminToken}}
+
+###################################
+### ENCAISSER QUITTANCE (PARTIEL)
+###################################
+POST {{baseUrl}}/quittance/encaisser/1
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "montant": 2000,
+  "mode_paiement": "espece"
+}
+
+###################################
+### ENCAISSER QUITTANCE (SOLDE)
+###################################
+POST {{baseUrl}}/quittance/encaisser/1
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "montant": 2500,
+  "mode_paiement": "virement"
+}
+
+###################################
+### DELETE QUITTANCE (ADMIN)
+###################################
+DELETE {{baseUrl}}/quittance/delete/1
+Authorization: Bearer {{adminToken}}

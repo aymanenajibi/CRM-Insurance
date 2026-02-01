@@ -42,6 +42,11 @@ const navItems: NavItem[] = [
     path: "#",
   },
   {
+    icon: <FileIcon />,
+    name: "devis",
+    path: "#",
+  },
+  {
     icon: <DollarLineIcon />,
     name: "Quittance",
     path: "#",
