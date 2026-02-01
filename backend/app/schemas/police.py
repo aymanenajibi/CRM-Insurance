@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from datetime import date
 from typing import Optional
+from app.schemas.client import ClientResponse
 
 class PoliceBase(BaseModel):
     num_police: str
@@ -17,5 +18,6 @@ class PoliceUpdate(BaseModel):
 
 class PoliceResponse(PoliceBase):
     id: int
+    client: Optional[ClientResponse] = None
     class Config:
         from_attributes = True

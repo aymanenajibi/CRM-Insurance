@@ -8,6 +8,7 @@ import Home from "./pages/Dashboard/Home";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import UsersPage from "./pages/listes/UsersPage";
 import ClientsPage from "./pages/listes/ClientsPage";
+import PolicePage from "./pages/listes/PolicePage";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
             <Route path="/profile" element={<UserProfiles />} />
             <Route path="/users" element={<UsersPage />} />
             <Route path="/client" element={<ClientsPage />} />
+            <Route path="/police" element={<PolicePage />} />
           </Route>
 
           {/* Auth Layout - Routes publiques */}
