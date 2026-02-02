@@ -119,8 +119,6 @@ Content-Type: application/json
 }
 
 
-<<<<<<< Updated upstream
-_______________________________________________________
 
 
 ###################################
@@ -196,7 +194,6 @@ Authorization: Bearer {{adminToken}}
 ### DELETE QUITTANCE (ADMIN)
 ###################################
 DELETE {{baseUrl}}/quittance/delete/1
-=======
 
 
 ### 1. Create a New Vehicule
@@ -231,5 +228,4 @@ Authorization: Bearer {{adminToken}}
 
 ### 4. Delete a Vehicule
 DELETE {{baseUrl}}/vehicules/1
->>>>>>> Stashed changes
 Authorization: Bearer {{adminToken}}
