@@ -1,10 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-<<<<<<< Updated upstream
-from app.routes import auth, users, client, police, devis, quittance, vehicule
-=======
 from app.routes import auth, users, client, police,devis,quittance, vehicule, stats
->>>>>>> Stashed changes
 
 app = FastAPI(
     title="FastAPI Auth System",
@@ -31,10 +27,8 @@ app.include_router(police.router)
 app.include_router(devis.router)
 app.include_router(quittance.router)
 app.include_router(vehicule.router)
-<<<<<<< Updated upstream
-=======
 app.include_router(stats.router)
->>>>>>> Stashed changes
+
 
 
 @app.get("/")
