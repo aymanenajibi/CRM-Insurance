@@ -1,0 +1,58 @@
+# ----------------------
+# IDE / Editor / System
+# ----------------------
+.vscode/
+!.vscode/extensions.json
+.idea/
+.history/
+.DS_Store
+*.sw?
+Thumbs.db
+desktop.ini
+
+# ----------------------
+# Python & Backend
+# ----------------------
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+ENV/
+backend/venv/
+backend/env/
+*.sqlite3
+*.db
+backend/alembic.ini
+*.log
+
+# ----------------------
+# Frontend (Node / React)
+# ----------------------
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/build/
+
+# ----------------------
+# Security / Environment
+# ----------------------
+.env
+.env.*
+backend/.env
+frontend/.env
+frontend/.env.local
+
+# ----------------------
+# Python Packaging & Tests
+# ----------------------
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+.cache/
+htmlcov/
