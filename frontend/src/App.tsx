@@ -10,6 +10,7 @@ import UsersPage from "./pages/listes/UsersPage";
 import ClientsPage from "./pages/listes/ClientsPage";
 import PolicePage from "./pages/listes/PolicePage";
 import VehiculesPage from "./pages/listes/VehiculesPage";
+import DevisPage from "./pages/listes/DevisPage";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/client" element={<ClientsPage />} />
             <Route path="/police" element={<PolicePage />} />
             <Route path="/vehicules" element={<VehiculesPage />} />
+            <Route path="/devis" element={<DevisPage />} />
           </Route>
 
           {/* Auth Layout - Routes publiques */}
