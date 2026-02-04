@@ -20,3 +20,4 @@ class Quittance(Base):
     devis = relationship("Devis", back_populates="quittance")
     client = relationship("Client", back_populates="quittances")
     vehicule = relationship("Vehicule", back_populates="quittances")
+    paiements = relationship("Paiement", back_populates="quittance", cascade="all, delete")

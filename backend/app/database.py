@@ -32,7 +32,7 @@ from app.models.vehicule import Vehicule
 from app.models.police import Police
 from app.models.devis import Devis
 from app.models.quittance import Quittance
-
+from app.models.paiement import Paiement
 
 # Crée tables
 def init_db():
