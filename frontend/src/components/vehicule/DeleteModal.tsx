@@ -1,49 +1,86 @@
-import React from 'react';
-import { AlertTriangle } from 'lucide-react';
+// components/clients/DeleteModal.tsx
+import { Modal } from "../ui/modal";
+import Button from "../ui/button/Button";
+import { Trash2, AlertCircle } from "lucide-react";
 
-interface Props {
+interface DeleteModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onConfirm: () => void;
-  itemName: string; // The matricule or name of the car
+  onConfirm: () => Promise<void>;
+  clientName: string;
+  loading?: boolean;
 }
 
-export const DeleteModal = ({ isOpen, onClose, onConfirm, itemName }: Props) => {
-  if (!isOpen) return null;
-
+export function DeleteModal({
+  isOpen,
+  onClose,
+  onConfirm,
+  clientName,
+  loading = false,
+}: DeleteModalProps) {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60]">
-      <div className="bg-white p-6 rounded-lg w-full max-w-sm shadow-xl">
-        <div className="flex items-center justify-center w-12 h-12 mx-auto bg-red-100 rounded-full">
-          <AlertTriangle className="w-6 h-6 text-red-600" />
-        </div>
+    <Modal isOpen={isOpen} onClose={onClose} className="max-w-md">
+      {/* Container matching your dashboard palette */}
+      <div className="bg-[#0a0c14] backdrop-blur-xl rounded-3xl border border-slate-800 shadow-2xl p-8 overflow-hidden relative">
         
-        <div className="mt-4 text-center">
-          <h3 className="text-lg font-bold text-gray-900">Confirmer la suppression</h3>
-          <p className="mt-2 text-sm text-gray-500">
-            Êtes-vous sûr de vouloir supprimer le véhicule <span className="font-semibold text-gray-700">{itemName}</span> ? 
-            Cette action est irréversible.
+        {/* Subtle red danger glow at the top */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-rose-600/50 to-transparent" />
+
+        <div className="text-center mb-8">
+          {/* Replaced SVG with Lucide for consistency with your other components */}
+          <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center">
+            <div className="w-14 h-14 rounded-xl bg-rose-600 shadow-[0_0_20px_rgba(225,29,72,0.3)] flex items-center justify-center">
+              <Trash2 className="w-7 h-7 text-white" />
+            </div>
+          </div>
+
+          <h3 className="text-2xl font-bold text-white tracking-tight">
+            Supprimer le client ?
+          </h3>
+          
+          <div className="mt-4 p-4 rounded-xl bg-slate-900/50 border border-slate-800/50">
+             <p className="text-slate-400 text-sm leading-relaxed">
+              Êtes-vous sûr de vouloir supprimer{" "}
+              <span className="font-bold text-rose-500">
+                {clientName}
+              </span>?
+            </p>
+            <div className="flex items-center gap-2 mt-3 justify-center text-[11px] text-amber-500/80 bg-amber-500/5 py-2 px-3 rounded-lg border border-amber-500/10">
+              <AlertCircle size={14} />
+              <span className="uppercase font-bold tracking-wider">Action Irréversible</span>
+            </div>
+          </div>
+
+          <p className="mt-4 text-[11px] text-slate-500 italic">
+            Note: Cette action supprimera également toutes les polices, véhicules, devis et quittances associés.
           </p>
         </div>
 
-        <div className="flex gap-3 mt-6">
-          <button
+        <div className="flex items-center justify-center gap-3">
+          <Button
+            variant="outline"
             onClick={onClose}
-            className="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
+            disabled={loading}
+            className="flex-1 py-6 border-slate-800 bg-slate-900/50 text-slate-300 hover:bg-slate-800 hover:text-white transition-all rounded-xl"
           >
             Annuler
-          </button>
-          <button
-            onClick={() => {
-              onConfirm();
-              onClose();
-            }}
-            className="flex-1 px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700"
+          </Button>
+          <Button
+            onClick={onConfirm}
+            disabled={loading}
+            className="flex-1 py-6 bg-rose-600 hover:bg-rose-500 text-white font-bold shadow-lg shadow-rose-600/20 transition-all rounded-xl disabled:opacity-50"
           >
-            Supprimer
-          </button>
+            {loading ? (
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                <span>Suppression...</span>
+              </div>
+            ) : (
+              "Supprimer"
+            )}
+          </Button>
         </div>
       </div>
-    </div>
+    </Modal>
   );
-};
+}

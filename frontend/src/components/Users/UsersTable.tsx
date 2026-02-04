@@ -257,7 +257,7 @@ export default function UsersTable() {
                 <TableRow key={user.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/30">
                   <TableCell className="py-4 px-6">
                     <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold shadow-md ${getAvatarColor(user.username)}`}>
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center  dark:text-white font-bold shadow-md ${getAvatarColor(user.username)}`}>
                         {getInitial(user.username)}
                       </div>
                       <div>

@@ -18,10 +18,16 @@
     "@fullcalendar/timegrid": "^6.1.15",
     "@react-jvectormap/core": "^1.0.4",
     "@react-jvectormap/world": "^1.1.2",
+<<<<<<< Updated upstream
+=======
+    "@tailwindcss/vite": "^4.1.18",
+    "antd": "^6.2.3",
+>>>>>>> Stashed changes
     "apexcharts": "^4.1.0",
     "axios": "^1.13.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dayjs": "^1.11.19",
     "flatpickr": "^4.6.13",
     "lucide-react": "^0.563.0",
     "pinia": "^3.0.4",
