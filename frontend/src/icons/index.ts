@@ -55,6 +55,8 @@ import { ReactComponent as MoreDotIcon } from "./moredot.svg?react";
 import { ReactComponent as AlertHexaIcon } from "./alert-hexa.svg?react";
 import { ReactComponent as ErrorHexaIcon } from "./info-hexa.svg?react";
 import { ReactComponent as CarIcon } from "./car.svg?react";
+import { ReactComponent as ShredderIcon } from "./shredder.svg?react";
+
 export {
   ErrorHexaIcon,
   AlertHexaIcon,
@@ -113,4 +115,5 @@ export {
   AngleLeftIcon,
   AngleRightIcon,
   CarIcon,
+  ShredderIcon
 };
