@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import auth, users, client, police,devis,quittance, vehicule, stats
+from app.routes import auth, users, client, police,devis,quittance, vehicule, stats, paiement
 
 app = FastAPI(
     title="FastAPI Auth System",
@@ -28,6 +28,7 @@ app.include_router(devis.router)
 app.include_router(quittance.router)
 app.include_router(vehicule.router)
 app.include_router(stats.router)
+app.include_router(paiement.router)
 
 
 
