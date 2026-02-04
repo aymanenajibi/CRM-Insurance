@@ -50,7 +50,7 @@ const navItems: NavItem[] = [
   {
     icon: <DollarLineIcon />,
     name: "Quittance",
-    path: "#",
+    path: "quittance",
   },
 ];
 
