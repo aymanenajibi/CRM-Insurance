@@ -15,6 +15,7 @@ class QuittanceBase(BaseModel):
     montant_encaisse: float = 0
     solde: float
     mode_paiement: str = ""
+    statut_paiement: str = "impayé"
 
 
 class QuittanceCreate(QuittanceBase):
@@ -22,9 +23,10 @@ class QuittanceCreate(QuittanceBase):
 
 
 class QuittanceUpdate(BaseModel):
-    montant_encaisse: Optional[float]
-    mode_paiement: Optional[str]
-    solde: Optional[float]
+    montant_encaisse: Optional[float] = None
+    mode_paiement: Optional[str] = None
+    solde: Optional[float] = None
+    statut_paiement: Optional[str] = None
 
 
 class QuittanceResponse(QuittanceBase):
@@ -44,3 +46,8 @@ class QuittanceEncaissement(BaseModel):
 class PaymentData(BaseModel):
     montant_encaisse: float
     mode_paiement: str
+
+class QuittanceUpdateStatus(BaseModel):
+    statut_paiement: str
+    montant_encaisse: Optional[float] = None
+    solde: Optional[float] = None

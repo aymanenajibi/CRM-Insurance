@@ -7,6 +7,7 @@ import { DevisFormData } from "../../types/devis";
 import { Client } from "../../types/client";
 import { Vehicule } from "../../types/vehicule";
 import { Police } from "../../types/police";
+import { Select } from "antd";
 
 interface DevisFormModalProps {
   isOpen: boolean;
@@ -62,12 +63,10 @@ export function DevisFormModal({
       );
       setFilteredVehicules(clientVehicules);
 
-      // Si aucun véhicule n'est sélectionné et que le client a des véhicules, sélectionner le premier
       if (clientVehicules.length > 0 && (!formData.fk_vehicule_id || formData.fk_vehicule_id === 0)) {
         setFormData(prev => ({ ...prev, fk_vehicule_id: clientVehicules[0].id }));
       }
 
-      // Si le véhicule actuellement sélectionné n'appartient pas au nouveau client, le réinitialiser
       if (formData.fk_vehicule_id && formData.fk_vehicule_id > 0) {
         const selectedVehicule = vehicules.find(v => v.id === formData.fk_vehicule_id);
         if (selectedVehicule && selectedVehicule.fk_client_id !== formData.fk_client_id) {
@@ -86,7 +85,7 @@ export function DevisFormModal({
     }
   }, [formData.fk_client_id, vehicules, formData.fk_vehicule_id]);
 
-  // Filtrer et auto-sélectionner les polices quand le client change
+  // Filtrer et auto-sélectionner les polices
   useEffect(() => {
     if (formData.fk_client_id && formData.fk_client_id > 0) {
       const clientPolices = polices.filter(
@@ -94,12 +93,10 @@ export function DevisFormModal({
       );
       setFilteredPolices(clientPolices);
 
-      // Si le client a une seule police et aucune n'est encore sélectionnée
       if (clientPolices.length === 1 && !formData.fk_police_id) {
         setFormData(prev => ({ ...prev, fk_police_id: clientPolices[0].id }));
       }
 
-      // Si la police actuellement sélectionnée n'appartient pas au client
       if (formData.fk_police_id && formData.fk_police_id > 0) {
         const selectedPolice = polices.find(p => p.id === formData.fk_police_id);
         if (selectedPolice && selectedPolice.fk_client_id !== formData.fk_client_id) {
@@ -124,7 +121,7 @@ export function DevisFormModal({
     }
   }, [formData.fk_client_id, polices, formData.fk_police_id, formData.fk_vehicule_id]);
 
-  // Suggérer une police basée sur le véhicule sélectionné
+  // Suggérer une police basée sur le véhicule
   useEffect(() => {
     if (formData.fk_vehicule_id && formData.fk_vehicule_id > 0 && formData.fk_client_id) {
       const clientPolices = polices.filter(
@@ -144,7 +141,6 @@ export function DevisFormModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validation
     if (!formData.num_devis) {
       alert("Veuillez entrer un numéro de devis");
       return;
@@ -163,12 +159,10 @@ export function DevisFormModal({
     }
 
     try {
-      // Préparer les données avec le bon format pour l'API
       const submitData = {
         ...formData,
         date_effet: new Date(formData.date_effet).toISOString().split('T')[0],
         date_echeance: new Date(formData.date_echeance).toISOString().split('T')[0],
-        // Le statut vient directement du formulaire
         statut: formData.statut || 'en_attente'
       };
 
@@ -193,35 +187,23 @@ export function DevisFormModal({
     return date.toISOString().split('T')[0];
   };
 
-  const handleDateEffetChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, date_effet: e.target.value });
-  };
-
-  const handleDateEcheanceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, date_echeance: e.target.value });
-  };
-
-  const handleClientChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const clientId = parseInt(e.target.value) || 0;
+  const handleClientChange = (value: number) => {
     setFormData({
       ...formData,
-      fk_client_id: clientId,
+      fk_client_id: value,
       fk_vehicule_id: 0,
       fk_police_id: 0
     });
   };
 
-  const handleVehiculeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
-    setFormData({ ...formData, fk_vehicule_id: value ? parseInt(value) : 0 });
+  const handleVehiculeChange = (value: number) => {
+    setFormData({ ...formData, fk_vehicule_id: value });
   };
 
-  const handlePoliceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
-    setFormData({ ...formData, fk_police_id: value ? parseInt(value) : 0 });
+  const handlePoliceChange = (value: number) => {
+    setFormData({ ...formData, fk_police_id: value });
   };
 
-  // Générer un numéro de devis automatique
   const generateNumDevis = () => {
     const date = new Date();
     const year = date.getFullYear();
@@ -235,258 +217,439 @@ export function DevisFormModal({
     setFormData({ ...formData, num_devis: generateNumDevis() });
   };
 
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('fr-MA', {
+      style: 'currency',
+      currency: 'MAD',
+      minimumFractionDigits: 2
+    }).format(amount);
+  };
+
+  const statusOptions = [
+    { value: "en_attente", label: "En attente" },
+    { value: "accepte", label: "Accepté" },
+    { value: "refuse", label: "Refusé" },
+    { value: "expire", label: "Expiré" },
+  ];
+
+  const showSummary = formData.fk_client_id && formData.fk_vehicule_id && formData.fk_police_id;
+
   return (
     <Modal
       isOpen={isOpen}
       onClose={handleClose}
-      className="max-w-3xl"
+      className="max-w-3xl w-full max-h-[90vh] flex flex-col overflow-hidden"
     >
-      <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-3xl border border-green-200/50 dark:border-green-800/50 shadow-2xl p-8">
-        <div className="text-center mb-8">
-          <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 dark:from-green-500/20 dark:to-emerald-500/20 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 dark:from-green-600 dark:to-emerald-700 flex items-center justify-center">
-              {isEditing ? (
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                </svg>
-              ) : (
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              )}
-            </div>
+      {/* Header compact */}
+      <div className="px-5 py-3 border-b border-gray-200 dark:border-gray-800 flex-shrink-0">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+              {isEditing ? "Modifier le devis" : "Nouveau devis"}
+            </h3>
+            <p className="mt-0.5 text-xs text-gray-500 dark:text-gray-400">
+              {isEditing ? "Mise à jour des informations" : "Création d'un devis"}
+            </p>
           </div>
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-            {isEditing ? "Modifier le devis" : "Nouveau devis"}
-          </h3>
-          <p className="mt-2 text-gray-600 dark:text-gray-400">
-            {isEditing
-              ? "Modifier les informations du devis"
-              : "Remplissez les informations pour créer un nouveau devis"}
-          </p>
         </div>
+      </div>
 
-        <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {/* Numéro de devis */}
-            <div className="md:col-span-2">
-              <div className="flex items-center justify-between mb-2">
-                <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Numéro de devis *
-                </Label>
-                <button
-                  type="button"
-                  onClick={handleGenerateNumDevis}
-                  className="text-sm text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 flex items-center gap-1"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                  </svg>
-                  Générer automatiquement
-                </button>
-              </div>
-              <Input
-                value={formData.num_devis}
-                onChange={(e) => setFormData({ ...formData, num_devis: e.target.value })}
-                placeholder="DEV-20241215-001"
-                required
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300/50 dark:border-gray-700/50 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
-              />
-            </div>
+      {/* Contenu principal */}
+      <div className="flex-1 min-h-0 overflow-hidden">
+        <div className="h-full p-5">
+          <form onSubmit={handleSubmit} className="h-full flex flex-col">
+            {/* Grille principale */}
+            <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-4 min-h-0 mb-4">
 
-            {/* Prime totale */}
-            <div>
-              <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Prime totale (MAD) *
-              </Label>
-              <Input
-                type="number"
-                step="0.01"
-                min="0"
-                value={formData.prime_total === 0 ? "" : formData.prime_total}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  setFormData({
-                    ...formData,
-                    prime_total: value === "" ? 0 : parseFloat(value) || 0
-                  });
-                }}
-                placeholder="0.00"
-                required
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300/50 dark:border-gray-700/50 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
-              />
-            </div>
+              {/* Colonne Formulaire (2/3) */}
+              <div className="lg:col-span-2 space-y-4">
 
-            {/* Statut */}
-            <div>
-              <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Statut *
-              </Label>
-              <select
-                value={formData.statut}
-                onChange={(e) => setFormData({ ...formData, statut: e.target.value })}
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300/50 dark:border-gray-700/50 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all appearance-none text-gray-900 dark:text-white"
-                required
-              >
-                <option value="en_attente">En attente</option>
-                <option value="accepte">Accepté</option>
-                <option value="refuse">Refusé</option>
-                <option value="expire">Expiré</option>
-              </select>
-            </div>
+                {/* Section Informations du devis */}
+                <div className="space-y-3">
+                  <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                    Informations du devis
+                  </h4>
 
-            {/* Date d'effet */}
-            <div>
-              <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Date d'effet *
-              </Label>
-              <Input
-                type="date"
-                value={formatDateForInput(formData.date_effet)}
-                onChange={handleDateEffetChange}
-                required
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300/50 dark:border-gray-700/50 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
-              />
-            </div>
+                  {/* Numéro de devis */}
+                  <div>
+                    <Label htmlFor="num_devis" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      Numéro de devis
+                    </Label>
+                    <div className="flex gap-1.5">
+                      <Input
+                        id="num_devis"
+                        value={formData.num_devis}
+                        onChange={(e) => setFormData({ ...formData, num_devis: e.target.value })}
+                        placeholder="DEV-20241215-001"
+                        required
+                        className="flex-1 text-sm px-3 py-1.5 h-10"
+                      />
+                      <button
+                        type="button"
+                        onClick={handleGenerateNumDevis}
+                        className="px-2.5 py-1.5 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded border border-gray-300 dark:border-gray-700 transition-colors whitespace-nowrap"
+                      >
+                        Générer
+                      </button>
+                    </div>
+                  </div>
 
-            {/* Date d'échéance */}
-            <div>
-              <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Date d'échéance *
-              </Label>
-              <Input
-                type="date"
-                value={formatDateForInput(formData.date_echeance)}
-                onChange={handleDateEcheanceChange}
-                required
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300/50 dark:border-gray-700/50 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
-              />
-            </div>
+                  {/* Prime totale et Statut */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <Label htmlFor="prime_total" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Prime totale
+                      </Label>
+                      <div className="relative">
+                        <Input
+                          id="prime_total"
+                          type="number"
+                          step="0.01"
+                          min="0"
+                          value={formData.prime_total === 0 ? "" : formData.prime_total}
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            setFormData({
+                              ...formData,
+                              prime_total: value === "" ? 0 : parseFloat(value) || 0
+                            });
+                          }}
+                          placeholder="0.00"
+                          required
+                          className="w-full pl-9 pr-3 py-1.5 h-10 text-sm"
+                        />
+                        <div className="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none">
+                          <span className="text-xs text-gray-500 dark:text-gray-400">MAD</span>
+                        </div>
+                      </div>
+                    </div>
 
-            {/* Client */}
-            <div>
-              <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Client *
-              </Label>
-              <select
-                value={formData.fk_client_id === 0 ? "" : formData.fk_client_id.toString()}
-                onChange={handleClientChange}
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300/50 dark:border-gray-700/50 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all appearance-none text-gray-900 dark:text-white"
-                required
-              >
-                <option value="">Sélectionnez un client</option>
-                {clients.map((client) => (
-                  <option key={client.id} value={client.id}>
-                    {client.nom_complet}
-                  </option>
-                ))}
-              </select>
-            </div>
+                    <div>
+                      <Label htmlFor="statut" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Statut
+                      </Label>
+                      <select
+                        id="statut"
+                        value={formData.statut}
+                        onChange={(e) => setFormData({ ...formData, statut: e.target.value })}
+                        className="w-full text-sm px-3 py-1.5 h-10 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 focus:border-blue-500 dark:focus:border-blue-600 transition-all"
+                        required
+                      >
+                        {statusOptions.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
 
-            {/* Véhicule */}
-            <div>
-              <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Véhicule *
-              </Label>
-              <select
-                value={formData.fk_vehicule_id === 0 ? "" : formData.fk_vehicule_id.toString()}
-                onChange={handleVehiculeChange}
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300/50 dark:border-gray-700/50 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all appearance-none text-gray-900 dark:text-white"
-                required
-                disabled={!formData.fk_client_id || filteredVehicules.length === 0}
-              >
-                <option value="">
-                  {!formData.fk_client_id
-                    ? "Sélectionnez d'abord un client"
-                    : filteredVehicules.length === 0
-                      ? "Ce client n'a pas de véhicules"
-                      : "Sélectionnez un véhicule"}
-                </option>
-                {filteredVehicules.map((vehicule) => (
-                  <option key={vehicule.id} value={vehicule.id}>
-                    <span style={{ fontWeight: 'bold' }}>{vehicule.marque}</span> {vehicule.model}
-                  </option>
-                ))}
-              </select>
-              {filteredVehicules.length > 0 && (
-                <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                  {filteredVehicules.length} véhicule(s) disponible(s) pour ce client
-                </p>
-              )}
-              {!formData.fk_client_id && (
-                <p className="mt-1 text-xs text-yellow-600 dark:text-yellow-400">
-                  Veuillez d'abord sélectionner un client pour voir ses véhicules
-                </p>
-              )}
-            </div>
+                  {/* Dates */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <Label htmlFor="date_effet" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Date d'effet
+                      </Label>
+                      <Input
+                        id="date_effet"
+                        type="date"
+                        value={formatDateForInput(formData.date_effet)}
+                        onChange={(e) => setFormData({ ...formData, date_effet: e.target.value })}
+                        required
+                        className="w-full px-3 py-1.5 h-10 text-sm"
+                      />
+                    </div>
 
-            {/* Police d'assurance */}
-            <div className="md:col-span-2">
-              <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Police d'assurance *
-              </Label>
-
-              <select
-                value={formData.fk_police_id === 0 ? "" : formData.fk_police_id.toString()}
-                onChange={handlePoliceChange}
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300/50 dark:border-gray-700/50 rounded-xl focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all appearance-none text-gray-900 dark:text-white"
-                required
-                disabled={!formData.fk_client_id || filteredPolices.length === 0}
-              >
-                <option value="">
-                  {!formData.fk_client_id
-                    ? "Sélectionnez d'abord un client"
-                    : filteredPolices.length === 0
-                      ? "Ce client n'a pas de polices"
-                      : "Sélectionnez une police"}
-                </option>
-                {filteredPolices.map((police) => (
-                  <option key={police.id} value={police.id}>
-                    {police.num_police}
-                  </option>
-                ))}
-              </select>
-
-              {!formData.fk_client_id ? (
-                <p className="mt-1 text-xs text-yellow-600 dark:text-yellow-400">
-                  Veuillez d'abord sélectionner un client pour voir ses polices
-                </p>
-              ) : (
-                <div className="mt-1 flex flex-col gap-0.5">
-                  {filteredPolices.length > 0 && (
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                      {filteredPolices.length} police(s) disponible(s) pour ce client
-                    </p>
-                  )}
-                  {formData.fk_police_id === 0 && filteredPolices.length > 0 && (
-                    <p className="text-xs text-blue-500 dark:text-blue-400">
-                      Veuillez choisir une police dans la liste ci-dessus
-                    </p>
-                  )}
+                    <div>
+                      <Label htmlFor="date_echeance" className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Date d'échéance
+                      </Label>
+                      <Input
+                        id="date_echeance"
+                        type="date"
+                        value={formatDateForInput(formData.date_echeance)}
+                        onChange={(e) => setFormData({ ...formData, date_echeance: e.target.value })}
+                        required
+                        className="w-full px-3 py-1.5 h-10 text-sm"
+                      />
+                    </div>
+                  </div>
                 </div>
-              )}
-            </div>
-          </div>
 
-          <div className="flex items-center justify-end gap-3 mt-8 pt-6 border-t border-gray-200/50 dark:border-gray-800/50">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={handleClose}
-              disabled={loading}
-              className="px-6 py-2.5"
-            >
-              Annuler
-            </Button>
-            <Button
-              type="submit"
-              disabled={loading}
-              className="px-6 py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700"
-            >
-              {loading ? "Chargement..." : (isEditing ? "Enregistrer" : "Créer le devis")}
-            </Button>
-          </div>
-        </form>
+                {/* Section Relations avec Select d'Ant Design */}
+                <div className="space-y-3 pt-2">
+                  <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                    Relations
+                  </h4>
+
+                  <div className="space-y-3">
+                    {/* Client */}
+                    <div>
+                      <Label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Client *
+                      </Label>
+                      <Select
+                        showSearch
+                        placeholder="Tapez pour rechercher un client..."
+                        optionFilterProp="label"
+                        filterOption={(input, option) =>
+                          (option?.label ?? "")
+                            .toLowerCase()
+                            .includes(input.toLowerCase())
+                        }
+                        className="w-full custom-antd-select"
+                        value={formData.fk_client_id || undefined}
+                        onChange={handleClientChange}
+                        getPopupContainer={(trigger) => trigger.parentElement}
+                        options={(clients || []).map((client) => ({
+                          value: client.id,
+                          label: `${client.nom_complet} (${client.cin})`,
+                        }))}
+                        style={{
+                          height: "38px",
+                          width: "100%",
+                        }}
+                      />
+                    </div>
+
+                    {/* Véhicule */}
+                    <div>
+                      <Label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Véhicule *
+                      </Label>
+                      <Select
+                        showSearch
+                        placeholder={!formData.fk_client_id
+                          ? "Sélectionnez d'abord un client"
+                          : filteredVehicules.length === 0
+                            ? "Aucun véhicule disponible"
+                            : "Tapez pour rechercher un véhicule..."
+                        }
+                        optionFilterProp="label"
+                        filterOption={(input, option) =>
+                          (option?.label ?? "")
+                            .toLowerCase()
+                            .includes(input.toLowerCase())
+                        }
+                        className="w-full custom-antd-select"
+                        value={formData.fk_vehicule_id || undefined}
+                        onChange={handleVehiculeChange}
+                        disabled={!formData.fk_client_id || filteredVehicules.length === 0}
+                        getPopupContainer={(trigger) => trigger.parentElement}
+                        options={(filteredVehicules || []).map((vehicule) => ({
+                          value: vehicule.id,
+                          label: `${vehicule.matricule} - ${vehicule.marque} ${vehicule.model}`,
+                        }))}
+                        style={{
+                          height: "38px",
+                          width: "100%",
+                        }}
+                      />
+                      {filteredVehicules.length > 0 && (
+                        <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                          {filteredVehicules.length} véhicule(s) disponible(s)
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Police d'assurance */}
+                    <div>
+                      <Label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Police d'assurance *
+                      </Label>
+                      <Select
+                        showSearch
+                        placeholder={!formData.fk_client_id
+                          ? "Sélectionnez d'abord un client"
+                          : filteredPolices.length === 0
+                            ? "Aucune police disponible"
+                            : "Tapez pour rechercher une police..."
+                        }
+                        optionFilterProp="label"
+                        filterOption={(input, option) =>
+                          (option?.label ?? "")
+                            .toLowerCase()
+                            .includes(input.toLowerCase())
+                        }
+                        className="w-full custom-antd-select"
+                        value={formData.fk_police_id || undefined}
+                        onChange={handlePoliceChange}
+                        disabled={!formData.fk_client_id || filteredPolices.length === 0}
+                        getPopupContainer={(trigger) => trigger.parentElement}
+                        options={(filteredPolices || []).map((police) => ({
+                          value: police.id,
+                          label: `${police.num_police} • ${formatCurrency(police.prime_totale || 0)}`,
+                        }))}
+                        style={{
+                          height: "38px",
+                          width: "100%",
+                        }}
+                      />
+                      {filteredPolices.length > 0 && (
+                        <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                          {filteredPolices.length} police(s) disponible(s)
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Colonne Récapitulatif (1/3) */}
+              <div className="lg:col-span-1">
+                <div className="bg-gray-50 dark:bg-gray-800/30 rounded border border-gray-200 dark:border-gray-700 p-3 h-full">
+                  <h4 className="text-xs font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                    </svg>
+                    Récapitulatif
+                  </h4>
+
+                  <div className="space-y-3">
+                    {/* Informations du client */}
+                    <div className="space-y-1.5">
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                        <p className="text-xs font-medium text-gray-700 dark:text-gray-300">Client</p>
+                      </div>
+                      <div className="pl-3">
+                        <p className="text-xs font-semibold text-gray-900 dark:text-white truncate">
+                          {clients.find(c => c.id === formData.fk_client_id)?.nom_complet || "—"}
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                          {clients.find(c => c.id === formData.fk_client_id)?.cin || "CIN non renseignée"}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Informations du véhicule */}
+                    <div className="space-y-1.5">
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
+                        <p className="text-xs font-medium text-gray-700 dark:text-gray-300">Véhicule</p>
+                      </div>
+                      <div className="pl-3">
+                        <p className="text-xs font-semibold text-gray-900 dark:text-white truncate">
+                          {vehicules.find(v => v.id === formData.fk_vehicule_id)?.matricule || "—"}
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                          {vehicules.find(v => v.id === formData.fk_vehicule_id)
+                            ? `${vehicules.find(v => v.id === formData.fk_vehicule_id)?.marque} ${vehicules.find(v => v.id === formData.fk_vehicule_id)?.model}`
+                            : "Marque/Modèle"}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Informations de la police */}
+                    <div className="space-y-1.5">
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
+                        <p className="text-xs font-medium text-gray-700 dark:text-gray-300">Police</p>
+                      </div>
+                      <div className="pl-3">
+                        <p className="text-xs font-semibold text-gray-900 dark:text-white truncate">
+                          {polices.find(p => p.id === formData.fk_police_id)?.num_police || "—"}
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                          {polices.find(p => p.id === formData.fk_police_id)
+                            ? formatCurrency(polices.find(p => p.id === formData.fk_police_id)?.prime_totale || 0)
+                            : "Montant non défini"}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Période et Montant total */}
+                    <div className="pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 space-y-2">
+                      <div>
+                        <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Période</p>
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs text-gray-900 dark:text-white">
+                            {formData.date_effet
+                              ? new Date(formData.date_effet).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' })
+                              : "—"}
+                          </span>
+                          <svg className="w-3 h-3 text-gray-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                          </svg>
+                          <span className="text-xs text-gray-900 dark:text-white">
+                            {formData.date_echeance
+                              ? new Date(formData.date_echeance).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' })
+                              : "—"}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="bg-gray-100 dark:bg-gray-800 rounded p-2">
+                        <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-0.5">Prime totale</p>
+                        <p className="text-sm font-bold text-gray-900 dark:text-white">
+                          {formatCurrency(formData.prime_total)}
+                        </p>
+                      </div>
+
+                      <div className="flex items-center justify-center">
+                        <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${formData.statut === 'accepte'
+                          ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'
+                          : formData.statut === 'refuse'
+                            ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300'
+                            : formData.statut === 'expire'
+                              ? 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300'
+                              : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'
+                          }`}>
+                          {statusOptions.find(s => s.value === formData.statut)?.label || formData.statut}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+                    <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+                      {showSummary
+                        ? "Toutes les informations sont complètes"
+                        : "Complétez le formulaire pour voir le récapitulatif"}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer - Toujours visible */}
+            <div className="pt-3 border-t border-gray-200 dark:border-gray-800 flex-shrink-0">
+              <div className="flex items-center justify-end gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handleClose}
+                  disabled={loading}
+                  className="px-3 py-1.5 text-xs h-8 min-w-[90px]"
+                >
+                  Annuler
+                </Button>
+                <Button
+                  type="submit"
+                  disabled={loading || !formData.num_devis || !formData.fk_client_id || !formData.fk_vehicule_id || !formData.fk_police_id}
+                  className="px-3 py-1.5 text-xs h-8 min-w-[110px] bg-gray-900 hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? (
+                    <span className="flex items-center gap-1.5">
+                      <svg className="animate-spin h-3 w-3 text-white" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Enregistrement...
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-1.5">
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {isEditing ? "Enregistrer" : "Créer"}
+                    </span>
+                  )}
+                </Button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </Modal>
   );

@@ -4,6 +4,7 @@ export interface Quittance {
   montant_encaisse: number;
   solde: number;
   mode_paiement: string;
+  statut_paiement: string;
   fk_devis_id: number;
   fk_vehicule_id: number;
   fk_client_id: number;
@@ -36,6 +37,7 @@ export interface QuittanceCreate {
 export interface QuittanceUpdate {
   montant_encaisse?: number;
   mode_paiement?: string;
+  solde?: number;
 }
 
 export interface QuittanceFormData {
@@ -48,12 +50,19 @@ export interface QuittanceFormData {
   mode_paiement: string;
 }
 
-export interface PaymentData {
-  montant: number;
-  methode: string;
+export interface QuittanceUpdateStatus {
+  statut_paiement: string;
+  montant_encaisse?: number;
+  solde?: number;
 }
 
-export interface PaymentCreate {
+export interface PaymentData {
+  montant_encaisse: number;
+  mode_paiement: string;
+}
+
+export interface PaiementCreate {
+  fk_quittance_id: number;
   montant: number;
   methode: string;
 }
