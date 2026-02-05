@@ -15,6 +15,7 @@ class Quittance(Base):
     montant_encaisse = Column(Float, default=0)
     solde = Column(Float)
     mode_paiement = Column(String)
+    statut_paiement = Column(String, default="impayé")
 
     # RELATIONS
     devis = relationship("Devis", back_populates="quittance")

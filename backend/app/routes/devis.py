@@ -58,10 +58,12 @@ def create_devis(data: DevisCreate, db: Session = Depends(get_db)):
         montant_encaisse=0,
         solde=devis.prime_total,
         mode_paiement="",
+        statut_paiement="impayé"
     )
 
     db.add(quittance)
     db.commit()
+    db.refresh(devis)
 
     return devis
 

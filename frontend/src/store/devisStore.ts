@@ -40,7 +40,6 @@ interface DevisState {
   deleteDevis: (devisId: number) => Promise<void>;
 
   // Actions spécifiques
-  genererQuittance: (devisId: number) => Promise<void>;
   exportDevisPDF: (devisId: number) => Promise<void>;
   sendDevisEmail: (devisId: number, email: string) => Promise<void>;
 
@@ -202,40 +201,6 @@ export const useDevisStore = create<DevisState>((set, get) => ({
   },
 
   // ========== SPECIFIC ACTIONS ==========
-
-  genererQuittance: async (devisId: number) => {
-    set({ loading: true, error: null });
-    try {
-      const result = await devisService.genererQuittance(devisId);
-
-      // Mettre à jour le devis pour refléter qu'il a maintenant une quittance
-      set(state => ({
-        devis: state.devis.map(devis => {
-          if (devis.id === devisId) {
-            return {
-              ...devis,
-              quittance: {
-                id: result.quittance_id,
-                prime_total: devis.prime_total,
-                solde: devis.prime_total,
-                montant_encaisse: 0
-              }
-            };
-          }
-          return devis;
-        }),
-        loading: false
-      }));
-
-      return result;
-    } catch (error: any) {
-      set({
-        error: error.response?.data?.detail || "Erreur lors de la génération de la quittance",
-        loading: false
-      });
-      throw error;
-    }
-  },
 
   exportDevisPDF: async (devisId: number) => {
     set({ loading: true, error: null });
