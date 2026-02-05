@@ -5,7 +5,6 @@ import Input from "../form/input/InputField";
 import Label from "../form/Label";
 import Button from "../ui/button/Button";
 import { UserFormData } from "../../types/user";
-import { message } from "antd";
 
 interface UserFormModalProps {
   isOpen: boolean;
@@ -45,19 +44,9 @@ export function UserFormModal({
     e.preventDefault();
     try {
       await onSubmit(formData);
-      message.success({
-        content: isEditing
-          ? "Utilisateur mis à jour !"
-          : "Utilisateur créé avec succès !",
-        duration: 3,
-        style: {
-          marginTop: "10vh",
-          zIndex: 99999,
-        },
-      });
       onClose();
     } catch (error) {
-      message.error("Erreur lors de l'enregistrement");
+      // L'erreur est gérée par le store
     }
   };
 
@@ -67,57 +56,24 @@ export function UserFormModal({
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={handleClose} className="max-w-2xl">
-      <div className="bg-white/10 dark:bg-gray-900/95 backdrop-blur-md rounded-3xl border border-gray-200/50 dark:border-gray-800/50 shadow-2xl p-8">
-        <div className="text-center mb-8">
-          <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 dark:from-blue-500/20 dark:to-purple-500/20 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 flex items-center justify-center">
-              {isEditing ? (
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
-                  />
-                </svg>
-              )}
-            </div>
-          </div>
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+    <Modal isOpen={isOpen} onClose={handleClose} className="max-w-lg">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
             {isEditing ? "Modifier l'utilisateur" : "Nouvel utilisateur"}
           </h3>
-          <p className="mt-2 text-gray-600 dark:text-gray-400">
+          <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
             {isEditing
-              ? "Modifier les informations de l'utilisateur"
-              : "Remplissez les informations pour créer un nouvel utilisateur"}
+              ? "Mettre à jour les informations de l'utilisateur"
+              : "Ajouter un nouvel utilisateur au système"}
           </p>
         </div>
 
         <form onSubmit={handleSubmit}>
-          <div className="space-y-5">
+          <div className="space-y-4">
             <div>
-              <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Nom d'utilisateur *
+              <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Nom d'utilisateur
               </Label>
               <Input
                 value={formData.username}
@@ -126,13 +82,13 @@ export function UserFormModal({
                 }
                 placeholder="john_doe"
                 required
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300/50 dark:border-gray-700/50 rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                className="w-full"
               />
             </div>
 
             <div>
-              <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Email *
+              <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Email
               </Label>
               <Input
                 type="email"
@@ -142,14 +98,14 @@ export function UserFormModal({
                 }
                 placeholder="john@exemple.com"
                 required
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300/50 dark:border-gray-700/50 rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                className="w-full"
               />
             </div>
 
             {!isEditing && (
               <div>
-                <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Mot de passe *
+                <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Mot de passe
                 </Label>
                 <Input
                   type="password"
@@ -159,16 +115,16 @@ export function UserFormModal({
                   }
                   placeholder="••••••••"
                   required
-                  className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300/50 dark:border-gray-700/50 rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                  className="w-full"
                 />
-                <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
                   Minimum 6 caractères
                 </p>
               </div>
             )}
 
             <div>
-              <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Rôle
               </Label>
               <select
@@ -179,7 +135,8 @@ export function UserFormModal({
                     role: e.target.value as "user" | "admin",
                   })
                 }
-                className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-300/50 dark:border-gray-700/50 rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all appearance-none text-gray-900 dark:text-white"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-400 dark:focus:border-blue-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                required
               >
                 <option value="user">Utilisateur</option>
                 <option value="admin">Administrateur</option>
@@ -187,22 +144,25 @@ export function UserFormModal({
             </div>
           </div>
 
-          <div className="flex items-center justify-end gap-3 mt-8 pt-6 border-t border-gray-200/50 dark:border-gray-800/50">
+          <div className="flex items-center justify-end gap-3 mt-6 pt-6 border-t dark:border-gray-700">
             <Button
               type="button"
               variant="outline"
               onClick={handleClose}
               disabled={loading}
-              className="px-6 py-2.5"
             >
               Annuler
             </Button>
             <Button
               type="submit"
               disabled={loading}
-              className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+              className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white"
             >
-              {loading ? "Chargement..." : isEditing ? "Enregistrer" : "Créer"}
+              {loading
+                ? "Chargement..."
+                : isEditing
+                  ? "Mettre à jour"
+                  : "Créer l'utilisateur"}
             </Button>
           </div>
         </form>

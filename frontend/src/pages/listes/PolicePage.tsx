@@ -1,10 +1,8 @@
 import PoliceTable from "../../components/police/PoliceTable";
 import PageMeta from "../../components/common/PageMeta";
-import ProtectedRoute from "../../components/common/ProtectedRoute";
 
 export default function PolicePage() {
   return (
-    <ProtectedRoute requireAdmin>
       <>
         <PageMeta
           title="Gestion des Polices | PoliSys"
@@ -15,6 +13,5 @@ export default function PolicePage() {
           <PoliceTable />
         </div>
       </>
-    </ProtectedRoute>
   );
 }

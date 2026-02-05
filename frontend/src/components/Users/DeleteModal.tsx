@@ -10,27 +10,41 @@ interface DeleteModalProps {
   loading?: boolean;
 }
 
-export function DeleteModal({ isOpen, onClose, onConfirm, userName, loading = false }: DeleteModalProps) {
+export function DeleteModal({
+  isOpen,
+  onClose,
+  onConfirm,
+  userName,
+  loading = false,
+}: DeleteModalProps) {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} backdropBlur={true} className="max-w-md">
-      <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-3xl border border-red-200/50 dark:border-red-900/50 shadow-2xl p-8">
-        <div className="text-center mb-8">
-          <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-red-500/10 to-red-600/10 dark:from-red-500/20 dark:to-red-600/20 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 dark:from-red-600 dark:to-red-700 flex items-center justify-center">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-              </svg>
-            </div>
+    <Modal isOpen={isOpen} onClose={onClose} className="max-w-md">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+        <div className="text-center mb-6">
+          <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+            <svg
+              className="w-6 h-6 text-red-600 dark:text-red-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+              />
+            </svg>
           </div>
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
             Supprimer l'utilisateur ?
           </h3>
-          <p className="mt-3 text-gray-600 dark:text-gray-400">
-            Êtes-vous sûr de vouloir supprimer{" "}
-            <span className="font-semibold text-gray-900 dark:text-white">
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            Vous êtes sur le point de supprimer{" "}
+            <span className="font-medium text-gray-900 dark:text-gray-100">
               {userName}
             </span>
-            ? Cette action est irréversible.
+            . Cette action est irréversible.
           </p>
         </div>
 
@@ -39,14 +53,14 @@ export function DeleteModal({ isOpen, onClose, onConfirm, userName, loading = fa
             variant="outline"
             onClick={onClose}
             disabled={loading}
-            className="flex-1 py-3"
+            className="flex-1"
           >
             Annuler
           </Button>
           <Button
             onClick={onConfirm}
             disabled={loading}
-            className="flex-1 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800"
+            className="flex-1 bg-red-600 hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600 text-white"
           >
             {loading ? "Suppression..." : "Supprimer"}
           </Button>

@@ -1,15 +1,15 @@
-import React from 'react';
-import { Navigate } from 'react-router';
-import { useAuth } from '../../hooks/useAuth';
+import React from "react";
+import { Navigate } from "react-router";
+import { useAuth } from "../../hooks/useAuth";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
   requireAdmin?: boolean;
 }
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ 
-  children, 
-  requireAdmin = false 
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
+  children,
+  requireAdmin = false,
 }) => {
   const { isAuthenticated, isLoading, isAdmin } = useAuth();
 

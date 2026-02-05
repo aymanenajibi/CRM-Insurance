@@ -1,20 +1,18 @@
+// pages/quittancesPage.tsx
 import QuittanceTable from "../../components/quittance/QuittanceTable";
 import PageMeta from "../../components/common/PageMeta";
-import ProtectedRoute from "../../components/common/ProtectedRoute";
 
-export default function QuittancePage() {
+export default function QuittancesPage() {
   return (
-    <ProtectedRoute requireAdmin>
-      <>
-        <PageMeta
-          title="Gestion des Quittances | PoliSys"
-          description="Page de gestion des quittances d'assurance"
-        />
-
-        <div className="p-6">
-          <QuittanceTable />
-        </div>
-      </>
-    </ProtectedRoute>
+    <> 
+      <PageMeta
+        title="Gestion des quittances | PoliSys"
+        description="Page de gestion des quittances"
+      />
+      
+      <div className="p-6">
+        <QuittanceTable />
+      </div>
+    </>
   );
 }

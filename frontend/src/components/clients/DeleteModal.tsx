@@ -1,4 +1,4 @@
-// components/clients/DeleteModal.tsx
+// DeleteModal.tsx (version pour clients)
 import { Modal } from "../ui/modal";
 import Button from "../ui/button/Button";
 
@@ -21,8 +21,8 @@ export function DeleteModal({
     <Modal isOpen={isOpen} onClose={onClose} className="max-w-2xl">
       <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-3xl border border-red-200/50 dark:border-red-900/50 shadow-2xl p-8">
         <div className="text-center mb-8">
-          <div className="w-20 h-20 mx-auto mb-4 rounded-2xl  from-red-500/10 to-red-600/10 dark:from-red-500/20 dark:to-red-600/20 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-2xl  from-red-500 to-red-600 dark:from-red-600 dark:to-red-700 flex items-center justify-center">
+          <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-red-500/10 to-red-600/10 dark:from-red-500/20 dark:to-red-600/20 flex items-center justify-center">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 dark:from-red-600 dark:to-red-700 flex items-center justify-center">
               <svg
                 className="w-8 h-8 text-white"
                 fill="none"
@@ -42,12 +42,12 @@ export function DeleteModal({
             Supprimer le client ?
           </h3>
           <p className="mt-3 text-gray-600 dark:text-gray-400">
-            Êtes-vous sûr de vouloir supprimer{" "}
+            Êtes-vous sûr de vouloir supprimer le client{" "}
             <span className="font-semibold text-gray-900 dark:text-white">
               {clientName}
             </span>
-            ? Cette action supprimera également toutes ses polices, véhicules,
-            devis et quittances associés.
+            ? Cette action supprimera également toutes les polices et devis
+            associés.
           </p>
         </div>
 

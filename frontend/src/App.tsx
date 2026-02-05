@@ -11,7 +11,8 @@ import ClientsPage from "./pages/listes/ClientsPage";
 import PolicePage from "./pages/listes/PolicePage";
 import VehiculesPage from "./pages/listes/VehiculesPage";
 import DevisPage from "./pages/listes/DevisPage";
-import QuittancePage from "./pages/listes/QuittancePage";
+import Unauthorized from "./pages/OtherPage/Unauthorized"; // Vous devez créer cette page
+import QuittancesPage from "./pages/listes/QuittancePage";
 
 export default function App() {
   return (
@@ -20,23 +21,33 @@ export default function App() {
         <ScrollToTop />
         <Routes>
           {/* Dashboard Layout - Routes protégées */}
-          <Route element={
-            <ProtectedRoute>
-              <AppLayout />
-            </ProtectedRoute>
-          }>
+          <Route element={<AppLayout />}>
             <Route index path="/" element={<Home />} />
             <Route path="/profile" element={<UserProfiles />} />
-            <Route path="/users" element={<UsersPage />} />
+
+            {/* Route /users accessible uniquement par les admins */}
+            <Route
+              path="/users"
+              element={
+                <ProtectedRoute requireAdmin={true}>
+                  <UsersPage />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Autres routes accessibles à tous les utilisateurs authentifiés */}
             <Route path="/client" element={<ClientsPage />} />
             <Route path="/police" element={<PolicePage />} />
             <Route path="/vehicules" element={<VehiculesPage />} />
             <Route path="/devis" element={<DevisPage />} />
-            <Route path="/quittance" element={<QuittancePage />} />
+            <Route path="/quittances" element={<QuittancesPage />} />
           </Route>
 
           {/* Auth Layout - Routes publiques */}
           <Route path="/signin" element={<SignIn />} />
+
+          {/* Route pour non autorisé */}
+          <Route path="/non-autorise" element={<Unauthorized />} />
 
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />

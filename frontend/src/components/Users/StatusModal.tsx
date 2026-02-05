@@ -11,36 +11,67 @@ interface StatusModalProps {
   loading?: boolean;
 }
 
-export function StatusModal({ isOpen, onClose, onConfirm, userName, action, loading = false }: StatusModalProps) {
+export function StatusModal({
+  isOpen,
+  onClose,
+  onConfirm,
+  userName,
+  action,
+  loading = false,
+}: StatusModalProps) {
   const actionText = action === "activate" ? "activer" : "désactiver";
   const actionTitle = action === "activate" ? "Activer" : "Désactiver";
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} backdropBlur={true} className="max-w-md">
-      <div className={`bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-3xl border ${action === "activate" ? "border-green-200/50 dark:border-green-900/50" : "border-yellow-200/50 dark:border-yellow-900/50"} shadow-2xl p-8`}>
-        <div className="text-center mb-8">
-          <div className={`w-20 h-20 mx-auto mb-4 rounded-2xl ${action === "activate" ? "bg-gradient-to-br from-green-500/10 to-green-600/10 dark:from-green-500/20 dark:to-green-600/20" : "bg-gradient-to-br from-yellow-500/10 to-yellow-600/10 dark:from-yellow-500/20 dark:to-yellow-600/20"} flex items-center justify-center`}>
-            <div className={`w-16 h-16 rounded-2xl ${action === "activate" ? "bg-gradient-to-br from-green-500 to-green-600 dark:from-green-600 dark:to-green-700" : "bg-gradient-to-br from-yellow-500 to-yellow-600 dark:from-yellow-600 dark:to-yellow-700"} flex items-center justify-center`}>
-              {action === "activate" ? (
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              ) : (
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-                </svg>
-              )}
-            </div>
+    <Modal isOpen={isOpen} onClose={onClose} className="max-w-md">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6">
+        <div className="text-center mb-6">
+          <div
+            className={`w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center ${
+              action === "activate"
+                ? "bg-green-100 dark:bg-green-900/30"
+                : "bg-yellow-100 dark:bg-yellow-900/30"
+            }`}
+          >
+            {action === "activate" ? (
+              <svg
+                className="w-6 h-6 text-green-600 dark:text-green-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            ) : (
+              <svg
+                className="w-6 h-6 text-yellow-600 dark:text-yellow-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
+                />
+              </svg>
+            )}
           </div>
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
             {actionTitle} l'utilisateur ?
           </h3>
-          <p className="mt-3 text-gray-600 dark:text-gray-400">
-            Êtes-vous sûr de vouloir {actionText}{" "}
-            <span className="font-semibold text-gray-900 dark:text-white">
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            Vous êtes sur le point de {actionText}{" "}
+            <span className="font-medium text-gray-900 dark:text-gray-100">
               {userName}
             </span>
-            ?
+            .
           </p>
         </div>
 
@@ -49,14 +80,18 @@ export function StatusModal({ isOpen, onClose, onConfirm, userName, action, load
             variant="outline"
             onClick={onClose}
             disabled={loading}
-            className="flex-1 py-3"
+            className="flex-1"
           >
             Annuler
           </Button>
           <Button
             onClick={onConfirm}
             disabled={loading}
-            className={`flex-1 py-3 ${action === "activate" ? "bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800" : "bg-gradient-to-r from-yellow-600 to-yellow-700 hover:from-yellow-700 hover:to-yellow-800"}`}
+            className={`flex-1 ${
+              action === "activate"
+                ? "bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600"
+                : "bg-yellow-600 hover:bg-yellow-700 dark:bg-yellow-500 dark:hover:bg-yellow-600"
+            } text-white`}
           >
             {loading ? "Chargement..." : actionTitle}
           </Button>

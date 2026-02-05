@@ -2,6 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
 
+from fastapi import Query
+
 from app.database import get_db
 from app.models.user import User
 from app.schemas.user import (
@@ -17,11 +19,63 @@ from app.dependencies import get_current_user, admin_only
 router = APIRouter(prefix="/users", tags=["Users"])
 
 
+# ===================== ACTIVER / DÉSACTIVER UN UTILISATEUR (ADMIN) =====================
+@router.put("/{user_id}/activate", response_model=UserResponse)
+def activate_user(
+    user_id: int,
+    active: bool = Query(..., description="True pour activer, False pour désactiver"),
+    db: Session = Depends(get_db),
+    admin=Depends(admin_only),
+):
+    """Activer ou désactiver un utilisateur (admin seulement)"""
+    user = db.query(User).filter(User.id == user_id).first()
+
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Utilisateur non trouvé"
+        )
+
+    user.active = active
+    db.commit()
+    db.refresh(user)
+
+    return user
+
+
+# ===================== ADMIN: RESET PASSWORD =====================
+@router.put("/{user_id}/reset-password", response_model=dict)
+def reset_user_password(
+    user_id: int,
+    data: PasswordReset,
+    db: Session = Depends(get_db),
+    admin=Depends(admin_only),
+):
+    """Réinitialiser le mot de passe d'un utilisateur (admin seulement)"""
+    user = db.query(User).filter(User.id == user_id).first()
+
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Utilisateur non trouvé"
+        )
+
+    user.password = hash_password(data.new_password)
+    db.commit()
+
+    return {
+        "message": f"Mot de passe de l'utilisateur {user.username} réinitialisé avec succès"
+    }
+
+
 # ===================== GET ALL USERS (ADMIN) =====================
 @router.get("/", response_model=List[UserResponse])
-def get_all_users(db: Session = Depends(get_db), admin=Depends(admin_only)):
-    """Récupérer tous les utilisateurs (admin seulement)"""
-    return db.query(User).all()
+def get_all_users(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+    admin=Depends(admin_only),
+):
+    """Récupérer tous les utilisateurs sauf l'utilisateur connecté (admin seulement)"""
+    users = db.query(User).filter(User.id != current_user.id).all()
+    return users
 
 
 # ===================== GET CURRENT USER =====================

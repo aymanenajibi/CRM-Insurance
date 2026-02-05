@@ -1,13 +1,11 @@
 // pages/ClientsPage.tsx
 import ClientsTable from "../../components/clients/ClientsTable";
 import PageMeta from "../../components/common/PageMeta";
-import ProtectedRoute from "../../components/common/ProtectedRoute";
 
 export default function ClientsPage() {
   return (
 
     <> 
-    <ProtectedRoute requireAdmin>
       <>
         <PageMeta
           title="Gestion des Clients | PoliSys"
@@ -18,7 +16,6 @@ export default function ClientsPage() {
           <ClientsTable />
         </div>
       </>
-    </ProtectedRoute>
     </>
   );
 }

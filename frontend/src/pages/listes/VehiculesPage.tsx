@@ -1,10 +1,8 @@
 import VehiculeTable from "../../components/vehicule/VehiculesTable";
 import PageMeta from "../../components/common/PageMeta";
-import ProtectedRoute from "../../components/common/ProtectedRoute";
 
 export default function VehiculesPage() {
   return (
-    <ProtectedRoute requireAdmin>
       <>
         <PageMeta
           title="Gestion des Véhicules | PoliSys"
@@ -15,6 +13,5 @@ export default function VehiculesPage() {
           <VehiculeTable />
         </div>
       </>
-    </ProtectedRoute>
   );
 }
