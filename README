@@ -1,0 +1,250 @@
+
+---
+
+# 📘 README.md — FRONTEND
+
+📍 **Emplacement** : `PyDashboard/frontend/README.md`
+
+```md
+# PyDashboard – Frontend
+
+## 📌 Description
+Le frontend de **PyDashboard** est une application web développée avec **React** et **TypeScript**.
+Il permet l’affichage des interfaces utilisateur et communique avec le backend via des API REST.
+
+Les fichiers locaux comme `node_modules` sont **ignorés par Git** et doivent être recréés après le clonage du projet.
+
+---
+
+## 🛠️ Technologies utilisées
+- React
+- TypeScript
+- Tailwind CSS
+- Axios
+
+---
+
+## 📁 Structure du projet
+```
+
+frontend/
+│── public/
+│── src/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── App.tsx
+│   └── main.tsx
+│── package.json
+│── README.md
+
+````
+
+---
+
+## 🚀 Installation et lancement (Windows)
+
+### 1️⃣ Accéder au dossier frontend
+```bash
+cd frontend
+````
+
+---
+
+### 2️⃣ Recréer les fichiers ignorés par Git
+
+(`node_modules` est ignoré par `.gitignore`)
+
+```bash
+npm install
+```
+
+---
+
+### 3️⃣ Lancer l’application
+
+```bash
+npm run dev
+```
+
+ou
+
+```bash
+npm start
+```
+
+📍 Application accessible sur :
+
+* [http://localhost:3000](http://localhost:3000)
+* [http://localhost:5173](http://localhost:5173) (Vite)
+
+---
+
+## 🔗 Connexion au backend
+
+Assurez-vous que le backend FastAPI est lancé avant d’utiliser le frontend.
+
+---
+
+## ⚠️ Remarques
+
+* `node_modules/` n’est **jamais pushé**
+* Les fichiers `.env` frontend (`.env.local`) sont ignorés
+* Chaque développeur doit installer ses dépendances localement
+
+---
+
+## 👨‍💻 Auteur
+
+Projet réalisé dans le cadre d’un projet d’étude.
+
+````
+
+---
+
+# 📘 README.md — BACKEND
+
+📍 **Emplacement** : `PyDashboard/backend/README.md`
+
+```md
+# PyDashboard – Backend (FastAPI)
+
+## 📌 Description
+Le backend de **PyDashboard** est développé avec **FastAPI**.
+Il fournit des API REST sécurisées avec **JWT** et utilise **PostgreSQL** comme base de données.
+
+Les fichiers sensibles ou locaux (`venv`, `.env`, base de données…) sont **ignorés par Git** et doivent être recréés après le clonage du projet.
+
+---
+
+## 🛠️ Technologies utilisées
+- Python 3.10+
+- FastAPI
+- Uvicorn
+- PostgreSQL
+- SQLAlchemy
+- JWT
+- python-dotenv
+
+---
+
+## 📁 Structure du projet
+````
+
+backend/
+│── app/
+│   ├── routes/
+│   ├── models/
+│   ├── schemas/
+│   ├── database.py
+│   └── main.py
+│── create_tables.py
+│── requirements.txt
+│── README.md
+
+````
+
+---
+
+## 🚀 Installation et lancement (Windows)
+
+### 1️⃣ Accéder au dossier backend
+```bash
+cd backend
+````
+
+---
+
+### 2️⃣ Recréer l’environnement virtuel (ignoré par Git)
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+---
+
+### 3️⃣ Installer les dépendances
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 4️⃣ Créer le fichier `.env` (ignoré par Git)
+
+```powershell
+@"
+# Environnement
+ENVIRONMENT=development
+
+# CORS
+BACKEND_CORS_ORIGINS=http://localhost:3000,http://localhost:5173,http://127.0.0.1:3000
+
+# Base de données
+DATABASE_URL=postgresql://postgres:root@localhost:5432/crm_db
+
+# JWT
+SECRET_KEY=supersecretkey
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+"@ | Out-File -Encoding utf8 .env
+```
+
+---
+
+### 5️⃣ Créer la base de données PostgreSQL
+
+À exécuter dans **pgAdmin** ou **psql** :
+
+```sql
+CREATE DATABASE crm_db;
+```
+
+---
+
+### 6️⃣ Créer les tables (ignorées par Git)
+
+```bash
+python create_tables.py
+```
+
+---
+
+### 7️⃣ Lancer le serveur FastAPI
+
+```bash
+uvicorn app.main:app --reload
+```
+
+---
+
+## 🌐 Accès
+
+* API : [http://127.0.0.1:8000](http://127.0.0.1:8000)
+* Swagger : [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+* ReDoc : [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+
+---
+
+## 🔐 Fichiers ignorés par Git (normal)
+
+* `venv/`
+* `.env`
+* Cache Python (`__pycache__`)
+* Base de données PostgreSQL
+
+👉 Tous ces éléments sont recréés avec les commandes ci-dessus.
+
+---
+
+## 👨‍💻 Auteur
+
+Projet réalisé dans le cadre d’un projet d’étude.
+
+```
+
+---
+
+
