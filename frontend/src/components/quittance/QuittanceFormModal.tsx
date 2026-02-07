@@ -154,44 +154,7 @@ export function QuittanceFormModal({
           <form onSubmit={handleSubmit}>
             <div className="space-y-6">
               {/* Sélection du devis - SEULEMENT LE FORMAT EST MODIFIÉ */}
-              <div>
-                <Label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
-                  Devis associé *
-                </Label>
-                <select
-                  value={formData.fk_devis_id || ""}
-                  onChange={(e) => handleDevisChange(parseInt(e.target.value))}
-                  className="w-full px-4 py-3 text-sm bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md focus:ring-2 focus:ring-gray-500 dark:focus:ring-gray-400 focus:border-gray-500 dark:focus:border-gray-400 transition-all appearance-none text-gray-900 dark:text-white"
-                  required
-                  disabled={!isEditing && availableDevis.length === 0}
-                >
-                  <option value="" className="text-gray-400 dark:text-gray-500">
-                    {!isEditing && availableDevis.length === 0
-                      ? "Aucun devis disponible (tous ont déjà une quittance)"
-                      : "Sélectionnez un devis"}
-                  </option>
-                  {availableDevis.map((devisItem) => (
-                    <option key={devisItem.id} value={devisItem.id} className="text-gray-900 dark:text-white">
-                      {devisItem.num_devis || `DEV-${devisItem.id}`} • {formatCurrency(devisItem.prime_total)}
-                    </option>
-                  ))}
-                </select>
 
-                {/* Message d'information */}
-                {!isEditing && (
-                  <div className="mt-2">
-                    {availableDevis.length === 0 ? (
-                      <p className="text-sm text-amber-600 dark:text-amber-400">
-                        Tous les devis ont déjà une quittance. Créez un nouveau devis.
-                      </p>
-                    ) : (
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        {availableDevis.length} devis disponible(s) sans quittance
-                      </p>
-                    )}
-                  </div>
-                )}
-              </div>
 
               {/* Informations financières */}
               <div>
